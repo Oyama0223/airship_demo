@@ -19,6 +19,7 @@
             /* 背景用の淡い色 */
             --main-pale: #eef7f9;
 
+            --light-gray: #f4f4f4;
             --medium-gray: #7a8a8e;
             --border-gray: #d6e6ea;
             --text-color: #333333;
@@ -41,7 +42,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .logo a { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 40px; width: auto; display: block; transition: opacity 0.3s; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
         .logo-img:hover { opacity: 0.8; }
         nav {
             display: flex;
@@ -65,7 +66,7 @@
         .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         .text { flex: 1.2; min-width: 300px; }
         .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .bg-light { background-color: var(--main-pale); }
+        .bg-light { background-color: var(--light-gray); }
         .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
         .bg-dark .section-title { color: var(--white); }
         .bg-dark .section-title::after { background: var(--white); }
@@ -132,6 +133,7 @@
             nav { flex-direction: column; padding: 15px 0; gap: 15px; }
             nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
             nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
             .hero { height: 50vh; }
             .container { padding: 3rem 20px; }
             .section-title { font-size: 1.8rem; }
@@ -161,11 +163,10 @@
         </div>
         <ul>
             <li><a href="index.html" class="active">トップ</a></li>
-            <li><a href="history.html">沿革</a></li>
-            <li><a href="executives.html">役員</a></li>
-            <li><a href="events.html">行事</a></li>
+                        <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
             <li><a href="publications.html">出版物</a></li>
-            <li><a href="projects.html">プロジェクト</a></li>
             <li><a href="articles.html">記事</a></li>
             <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
@@ -200,12 +201,8 @@
             <!-- 新しいお知らせは一番上に追加してください -->
             <div class="news-list">
                 <a href="news1.html" class="news-link-card">
-                    <span class="news-date">2025.07.28</span>
-                    <h3>プロジェクトサイトを公開しました</h3>
-                </a>
-                <a href="news1.html" class="news-link-card">
-                    <span class="news-date">2025.07.28</span>
-                    <h3>プロジェクトサイトを公開しました</h3>
+                    <span class="news-date">20xx.00.00</span>
+                    <h3>テスト</h3>
                 </a>
             </div>
 
