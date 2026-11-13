@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブイヤント航空懇談会 | 記事</title>
-    <meta name="description" content="飛行船・気球に関するブイヤント航空懇談会の記事一覧です。">
+    <meta name="description" content="ブイヤント航空懇談会の設立史、機関誌の巻頭言、日本を飛んだ飛行船、LTA関連書誌などの記事一覧です。">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -228,16 +274,96 @@
 
 <main>
 
-    <!-- ▼ 記事一覧（新しい記事を上に追加） ▼ -->
+    <!-- ▼ 史誌編纂室（新しい記事を上に追加） ▼ -->
     <section class="container page-section">
+        <h2 class="section-heading">史誌編纂室</h2>
+        <p class="lead">ブイヤント航空懇談会の設立の経緯と黎明期の記録です。</p>
         <div class="news-list">
-            <a href="article1.html" class="news-link-card">
-                <span class="news-date">20xx.00.00</span>
-                <h3>（記事タイトル）</h3>
+            <a href="founding-reason.html" class="news-link-card">
+                <span class="news-date">1974</span>
+                <div class="card-body">
+                    <h3>ブイヤント航空懇談会は何故設立されたのか</h3>
+                    <p>HTA航空機の行詰りとLTA航空機の再評価、わが国の立場と今後の活動</p>
+                </div>
             </a>
-            <a href="article0.html" class="news-link-card">
-                <span class="news-date">20xx.00.00</span>
-                <h3>（記事タイトル）</h3>
+            <a href="founding.html" class="news-link-card">
+                <span class="news-date">1969〜1974</span>
+                <div class="card-body">
+                    <h3>ブイヤント航空懇談会の設立と黎明期</h3>
+                    <p>設立趣意書、第1回発起人会、設立趣旨、設立当初の会則、黎明期の要覧と足跡</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ▼ 巻頭言 ▼ -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-heading">機関誌「ブイヤント航空」巻頭言より</h2>
+            <div class="news-list">
+                <a href="forewords.html#kondo-toshikiyo" class="news-link-card">
+                    <span class="news-date">1975.05.01</span>
+                    <div class="card-body">
+                        <h3>巻頭言（監事 近藤俊清）</h3>
+                        <p>Vol.2 No.1 巻頭言</p>
+                    </div>
+                </a>
+                <a href="forewords.html#kondo-sekizo" class="news-link-card">
+                    <span class="news-date">1974.12.01</span>
+                    <div class="card-body">
+                        <h3>巻頭言（事務局長 近藤石象）</h3>
+                        <p>Vol.1 No.3 巻頭言</p>
+                    </div>
+                </a>
+                <a href="forewords.html#nishibori-2" class="news-link-card">
+                    <span class="news-date">1974.09.01</span>
+                    <div class="card-body">
+                        <h3>巻頭言（副会長 西堀栄三郎）</h3>
+                        <p>Vol.1 No.2 巻頭言</p>
+                    </div>
+                </a>
+                <a href="forewords.html#nishibori-1" class="news-link-card">
+                    <span class="news-date">1974.06.01</span>
+                    <div class="card-body">
+                        <h3>ブイヤント航空懇談会結成発足の意義（副会長 西堀栄三郎）</h3>
+                        <p>創刊号</p>
+                    </div>
+                </a>
+                <a href="forewords.html#kimura" class="news-link-card">
+                    <span class="news-date">1974.06.01</span>
+                    <div class="card-body">
+                        <h3>巻頭言（会長 木村秀政）</h3>
+                        <p>創刊号 巻頭言</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ▼ 飛行船情報 ▼ -->
+    <section class="container page-section" style="padding-top:5rem;">
+        <h2 class="section-heading">飛行船情報</h2>
+        <div class="news-list">
+            <a href="airships-japan.html" class="news-link-card">
+                <span class="news-date">資料</span>
+                <div class="card-body">
+                    <h3>日本を飛んだ飛行船（戦後編）</h3>
+                    <p>キドカラー号（JA1001）から、国内登録以外の来日飛行船まで</p>
+                </div>
+            </a>
+            <a href="bibliography.html" class="news-link-card">
+                <span class="news-date">資料</span>
+                <div class="card-body">
+                    <h3>LTA関連和文献書誌情報</h3>
+                    <p>飛行船・気球に関する和文の書籍・報告書・逐次刊行物の一覧</p>
+                </div>
+            </a>
+            <a href="careers.html" class="news-link-card">
+                <span class="news-date">案内</span>
+                <div class="card-body">
+                    <h3>飛行船の操縦士・整備士・技術者を志向する方へ</h3>
+                    <p>国土交通省の学科試験参考資料と、飛行船に特化した問題の概要</p>
+                </div>
             </a>
         </div>
     </section>

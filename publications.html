@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブイヤント航空懇談会 | 出版物</title>
-    <meta name="description" content="ブイヤント航空懇談会の会誌・刊行物のご案内です。">
+    <meta name="description" content="ブイヤント航空懇談会の機関誌「ブイヤント航空」（ISSN 1344-0527）と刊行書籍、投稿規定のご案内です。">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -228,29 +274,156 @@
 
 <main>
 
-    <!-- ▼ 導入文 ▼ -->
+    <!-- ▼ 機関誌 ▼ -->
     <section class="container page-section">
-        <h2 class="section-heading">刊行物について</h2>
-        <p class="lead">（会誌などの刊行物の説明を入力してください。）</p>
+        <h2 class="section-heading">機関誌「ブイヤント航空」</h2>
+        <table class="info-table kv">
+            <tr><th>誌名</th><td>ブイヤント航空</td></tr>
+            <tr><th>ISSN</th><td>1344-0527</td></tr>
+            <tr><th>創刊</th><td>1974年6月1日</td></tr>
+            <tr><th>刊行</th><td>年刊</td></tr>
+            <tr><th>次号</th><td>Vol.35　2027年5月発行予定（投稿締切：2027年3月31日）</td></tr>
+        </table>
+
+        <div class="prose" style="margin-top:2rem;">
+            <h3>「ブイヤント航空」発行の趣旨</h3>
+            <blockquote>今を生きる我々が、未来へ伝えたいLTAの知見</blockquote>
+            <p>　LTAに関する知見や学識や造詣を半世紀以上継続して後世へ伝え続けている団体は、日本国内においては本会が唯一であり、世界でも十指に入る歴史を有しています。会誌に収録する内容は、主に日本語による、日本での活動を中心とします。</p>
+            <p>　資料は国内の1次資料（オリジナル）を中心に、海外1次資料の要約（書誌）も含めて収録します。また、国内の2次的資料（再掲や改訂）は原著者のものであれば収録します。2次資料（再掲や改定）は、統計的な内容であれば精力的に収録しますが、原著や出典は必ず明記します。</p>
+            <p>　会誌編集委員会では、会員の皆様からのLTAニュース提供や編集協力をお願いしております。</p>
+            <p class="note-inline">※ バックナンバーの目次・在庫情報は現在準備中です。</p>
+        </div>
     </section>
 
-    <!-- ▼ 刊行物一覧（card を号ごとに追加） ▼ -->
-    <section class="bg-light">
+    <!-- ▼ 投稿規定 ▼ -->
+    <section class="bg-light" id="submission">
         <div class="container">
-            <h2 class="section-heading">刊行物一覧</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>（誌名・号数）</h3>
-                    <p class="news-date">発行：20xx.00</p>
-                    <p>（内容・特集の紹介を入力）</p>
+            <h2 class="section-heading">投稿規定</h2>
+            <div class="prose">
+                <h3>（1）原稿内容</h3>
+                <p>LTA（飛行船・気球）に関する、裏付けや再現性のある、次の1次資料を基本とします。</p>
+                <ul>
+                    <li>学術的な内容（例：材料、構造、空力、エネルギー、制御、飛行力学など）</li>
+                    <li>技術的な内容（例：設計、生産、試験、装備、運航、保全、飛行、気象など）</li>
+                    <li>社会的な内容（例：経済、経営、普及、宣伝、マーケティング、使用事業など）</li>
+                    <li>史的な内容（例：歴史や技術史、人物史など）</li>
+                    <li>法律・医学・事故調査的な内容</li>
+                    <li>その他LTAに関するメディア紹介、玩具・ステッカー・ピン・切手・プリペイドカード等のコレクターズグッズなど。また、これらのリストなど</li>
+                </ul>
+
+                <h3>（2）記載要領</h3>
+                <h4>全般</h4>
+                <p>投稿された電子文書が、配置を含めそのまま印刷されます。内容によっては掲載できない場合や、修正をお願いする場合があります。掲載料の徴収や、原稿料の支払いは一切行いません。</p>
+                <h4>書式設定</h4>
+                <ol>
+                    <li>用紙の大きさは「B5 JIS版タテ」、「白黒」。1論文3〜最大10ページ程度。</li>
+                    <li>用紙の余白は天地左右とも「20mm」。1ページにつき38〜42行。</li>
+                    <li>1行につき38〜42文字（全角文字、9ポイント換算）。</li>
+                    <li>図表を含めて1論文30メガバイトを超えないよう、画像は適度に圧縮処理すること。</li>
+                </ol>
+                <h4>PCアプリケーションとOS</h4>
+                <ol start="5">
+                    <li>OSはWindowsベースを基本とします（Mac OS Xも読めます）。</li>
+                    <li>ファイルは「Microsoft Word 97-2003互換」と「Adobe PDF」の両方を提出すること（Wordファイル必須。割付参考のためPDFファイルも添付し、フォントは埋め込むこと）。</li>
+                    <li>本文画像は「白黒」になることを考慮すること（元がカラーの写真はカラーのまま貼り付け、図は白黒で作図してください）。解像度の目安はモノクロ170dpi、カラー350dpi。</li>
+                    <li>図表（画像を含む）は、リンクではなく本文へ必ず組み込むこと。</li>
+                </ol>
+                <h4>記載事項</h4>
+                <ol start="9">
+                    <li>必要事項：題目（日英両方）、著者氏名（日英両方）、所属もしくは肩書（日英両方）、参考文献。その他、執筆者の希望に応じてE-mailアドレス、Keywords、要旨（abstract）、謝辞などを追加してください。</li>
+                </ol>
+                <h4>記載要領（必須）</h4>
+                <ol start="10">
+                    <li>本文は日本語（9ポイントの明朝体標準字体、英字はTimesを基本）。遊び文字等の特殊フォントは使用禁止（文字化けします）。標準フォントを使用してください。</li>
+                    <li>「用紙の天」と「題目」の間は（9ポイント文字の）1空白行。これ以外の空白行は本誌の他の論文を参考に、適当に入れてください。</li>
+                    <li>題目は日本語（12ポイント・ゴシック体）と英語（12ポイント・Times）の両方。</li>
+                    <li>執筆者（共著者含む）の氏名と所属（任意）を、日本語10ポイント（氏名はゴシック体、所属は明朝体）と英語10ポイント（Times）で記載。</li>
+                    <li>図表には図表番号を必ず付し、本文中で説明すること。コピーであれば出典も記載すること。</li>
+                    <li>章表示は9ポイント・ゴシック標準体を推奨（太字ボールドは印刷で潰れるため不可）。</li>
+                </ol>
+                <h4>記載要領（任意）</h4>
+                <ol start="16">
+                    <li>代表執筆者のE-mailアドレス（任意）は、9ポイントTimes文字。</li>
+                    <li>キーワード（任意）とアブストラクト（任意）は、9ポイントの日本語明朝か英語Times文字。キーワードはイタリック（斜体）を推奨。</li>
+                </ol>
+
+                <h3>（3）投稿方法</h3>
+                <ol>
+                    <li>原稿は、E-mailの添付ファイルか、電子メディアによる郵送で受け付けます。<br>
+                        E-mailの場合：会誌編集長宛てにお送りください。必ず別途、添付なしのメールで送信確認を行ってください。5MBを超える場合は事前にご相談ください。<br>
+                        郵送（メディア）の場合：会誌編集長宛てにお問い合わせください。</li>
+                    <li>郵送に用いる電子メディアは、CD、DVD、USBメモリのいずれか。USBメモリを除き返却いたしません。返却を希望される場合は、返信用郵便切手と返却用封筒（宛先明記）を同封してください。同封がない場合は返却いたしません。</li>
+                </ol>
+                <p>会誌編集長の連絡先は <a href="contact.html">お問い合わせ</a> の窓口までお尋ねください。</p>
+
+                <h3 id="ads">会誌への掲載広告の募集</h3>
+                <p>会誌（B5サイズ）へのモノクロ有料広告を募集します。LTA業界への宣伝に、ぜひご活用ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ▼ 刊行書籍（card を1冊ごとに追加） ▼ -->
+    <section class="container page-section" style="padding-top:5rem;">
+        <h2 class="section-heading">刊行書籍</h2>
+        <div class="grid one">
+            <div class="card">
+                <h3>とべ！飛行船</h3>
+                <div class="book">
+                    <img src="images/book-tobe-hikousen.jpg" alt="『とべ！飛行船』表紙">
+                    <dl>
+                        <dt>監修</dt><dd>木村秀政</dd>
+                        <dt>著者</dt><dd>木村秀政、真鍋博、磯貝浩、松島駿二郎、高斎正、川本三郎、久野英雄、鍛冶壮一、坂本武久</dd>
+                        <dt>発行</dt><dd>1976年11月1日 初版</dd>
+                        <dt>制作</dt><dd>ブイヤント航空懇談会／（株）科学技術開発センター</dd>
+                        <dt>発行所</dt><dd>山と渓谷社</dd>
+                        <dt>体裁</dt><dd>縦254mm×横188mm×厚16mm、780g、168ページ</dd>
+                        <dt>定価</dt><dd>3,800円</dd>
+                        <dt>ISBN</dt><dd>978-4635266017（ISBN-10：463526601X）</dd>
+                    </dl>
                 </div>
-                <div class="card">
-                    <h3>（誌名・号数）</h3>
-                    <p class="news-date">発行：20xx.00</p>
-                    <p>（内容・特集の紹介を入力）</p>
+            </div>
+            <div class="card">
+                <h3>飛行船の再発見 ― 新しいLTA航空機の発想</h3>
+                <div class="book">
+                    <dl>
+                        <dt>著者</dt><dd>飯沼和正（ブイヤント航空懇談会 事務局長）</dd>
+                        <dt>発行</dt><dd>1979年4月20日</dd>
+                        <dt>シリーズ</dt><dd>ブルーバックス B-384</dd>
+                        <dt>発行所</dt><dd>講談社</dd>
+                        <dt>ページ数</dt><dd>222ページ</dd>
+                        <dt>定価</dt><dd>580円</dd>
+                        <dt>ISBN</dt><dd>4061179845</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="card">
+                <h3>双胴型LTA「ヘリ・シップ」の提案及びその性能計算法</h3>
+                <div class="book">
+                    <dl>
+                        <dt>シリーズ</dt><dd>ブイヤント航空 1987 Vol.15 別冊</dd>
+                        <dt>著者</dt><dd>安東茂典</dd>
+                        <dt>発行</dt><dd>1987年11月30日</dd>
+                        <dt>制作</dt><dd>ブイヤント航空懇談会</dd>
+                        <dt>体裁</dt><dd>A5、48ページ（簡易印刷・簡易製本）</dd>
+                        <dt>頒価</dt><dd>2,000円</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="card">
+                <h3>飛行船の設計（Airship Design）</h3>
+                <div class="book">
+                    <dl>
+                        <dt>原著</dt><dd>Charles P. Burgess, <i>Airship Design</i>（1927）</dd>
+                        <dt>訳者</dt><dd>成田秀明、伊藤久、小段範久、岡本幸彦（NKK応用技術研究所 津研究センター）</dd>
+                        <dt>発行</dt><dd>1988年10月</dd>
+                        <dt>制作</dt><dd>ブイヤント航空懇談会</dd>
+                        <dt>体裁</dt><dd>A4、122ページ（簡易印刷・簡易製本）</dd>
+                        <dt>頒価</dt><dd>6,000円</dd>
+                    </dl>
                 </div>
             </div>
         </div>
+        <p class="lead" style="margin-top:2rem;">在庫・頒布については <a href="contact.html">お問い合わせ</a> ください。その他の飛行船・気球関連書籍は <a href="bibliography.html">LTA関連和文献書誌情報</a> にまとめています。</p>
     </section>
 
 </main>

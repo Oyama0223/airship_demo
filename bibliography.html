@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | LTA関連和文献書誌情報</title>
+    <meta name="description" content="飛行船・気球（LTA）に関する和文の書籍・報告書・逐次刊行物の書誌情報一覧です。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html" class="active">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>LTA関連和文献書誌情報</h1>
+    <p>Bibliography of LTA Literature in Japanese</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <p class="lead">　飛行船・気球（LTA）に関する和文の書籍・報告書・逐次刊行物を分類して掲載しています（217件）。書誌は「書名．著者．発行地，発行所，発行年，ページ数，価格．」の順に記載しています。</p>
+        <div class="toc">
+            <p>目次</p>
+            <ol>
+                <li><a href="#isas-report">宇宙科学研究所・高層気球編［特集号］</a></li>
+                <li><a href="#isas-symposium">宇宙科学研究所・高層気球編［シンポジウム］</a></li>
+                <li><a href="#jbf">日本気球連盟 逐次刊行物</a></li>
+                <li><a href="#books">ＬＴＡ専門書籍・雑誌・単独レポート</a></li>
+                <li><a href="#chapters">ＬＴＡ関連レポートを含む書籍（雑誌、新聞等除く）</a></li>
+            </ol>
+            <p style="margin-top:0.8rem; font-weight:normal; color:var(--text-color); font-size:0.9rem;">小分類：①雑学　②概要・解説　③歴史　④記録　⑤社会・経済　⑥法規　⑦飛行操作　⑧製造・整備　⑨工学・学術・技術　⑩調査報告書　⑪専門雑誌　⑫青少年向け読み物　⑬小説　⑭写真集・グラビア　⑮絵本　⑯マンガ</p>
+        </div>
+        <div class="bib-group" id="isas-report">
+            <h3>宇宙科学研究所・高層気球編［特集号］</h3>
+            <ol class="bib-list">
+                <li>気球シンポジウム特集号：東京大学宇宙航空研究所報告第2巻第1号（C）東京大学宇宙航空研究所大気球委員会．東京，東京大学宇宙航空研究所，1966，pp282-452，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第3巻第2号（B）通巻第18号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1967，pp378-447，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第4巻第1号（B）通巻第22号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1968，pp94-162，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第5巻第1号（B）通巻第29号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1969，pp81-181，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第6巻第1号（C）通巻第36号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1970，pp247-358，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第7巻第1号（C）通巻第43号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1971，pp225-313，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第9巻第1号（A）通巻第56号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1973，pp113-304，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第10巻第1号（B）通巻第64号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1974，pp87-233，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第11巻第2号（B）通巻第74号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1975，pp415-536，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第12巻第2号（B）通巻第82号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1976，pp517-655，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第13巻第3号（B）通巻第91号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1977，pp731-920，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第14巻第3号（B）通巻第100号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1978，pp901-1109，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第15巻第2号（B）通巻第106号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1979，pp205-352，非売．</li>
+                <li>大気球特集号：東京大学宇宙航空研究所報告第16巻第2号（B）通巻第114号．東京大学宇宙航空研究所大気球専門委員会．東京，東京大学宇宙航空研究所，1980，pp971-1132，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第1号．宇宙科学研究所．東京，宇宙科学研究所，1981，116p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第4号．宇宙科学研究所．東京，宇宙科学研究所，1982，125p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第8号．宇宙科学研究所．東京，宇宙科学研究所，1983，141p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第11号．宇宙科学研究所．東京，宇宙科学研究所，1984，91p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第13号．宇宙科学研究所．東京，宇宙科学研究所，1985，146p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第17号．宇宙科学研究所．東京，宇宙科学研究所，1986，143p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第20号．宇宙科学研究所．東京，宇宙科学研究所，1987，159p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第22号．宇宙科学研究所．東京，宇宙科学研究所，1988，141p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第24号．宇宙科学研究所．神奈川，宇宙科学研究所，1989，162p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第27号．宇宙科学研究所．神奈川，宇宙科学研究所，1990，130p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第30号．宇宙科学研究所．神奈川，宇宙科学研究所，1992，113p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第31号．宇宙科学研究所．神奈川，宇宙科学研究所，1993，183p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第32号．宇宙科学研究所．神奈川，宇宙科学研究所，1995，111p，非売．</li>
+                <li>大気球研究報告：宇宙科学研究所報告特集第33号．宇宙科学研究所．神奈川，宇宙科学研究所，1996，133p，非売．</li>
+            </ol>
+        </div>
+        <div class="bib-group" id="isas-symposium">
+            <h3>宇宙科学研究所・高層気球編［シンポジウム］</h3>
+            <ol class="bib-list">
+                <li>大気球シンポジウム．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1967，213p，非売．</li>
+                <li>大気球シンポジウム昭和42年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1968，277p，非売．</li>
+                <li>大気球シンポジウム昭和43年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1969，300p，非売．</li>
+                <li>大気球シンポジウム昭和44年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1970，272p，非売．</li>
+                <li>大気球シンポジウム昭和45年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1971，258p，非売．</li>
+                <li>大気球シンポジウム昭和46年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1972，221p，非売．</li>
+                <li>大気球シンポジウム昭和47年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1973，321p，非売．</li>
+                <li>大気球シンポジウム昭和48年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1974，272p，非売．</li>
+                <li>大気球シンポジウム昭和49年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1975，261p，非売．</li>
+                <li>大気球シンポジウム昭和50年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1976，285p，非売．</li>
+                <li>大気球シンポジウム昭和51年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1977，279p，非売．</li>
+                <li>大気球シンポジウム昭和52年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1978，269p，非売．</li>
+                <li>大気球シンポジウム昭和53年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1979，302p，非売．</li>
+                <li>大気球シンポジウム昭和54年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1980，307p，非売．</li>
+                <li>大気球シンポジウム昭和55年度．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1981，288p，非売．</li>
+                <li>大気球シンポジウム昭和56年度．宇宙科学研究所．東京，宇宙科学研究所，1982，337p，非売．</li>
+                <li>大気球シンポジウム昭和57年度．宇宙科学研究所．東京，宇宙科学研究所，1983，253p，非売．</li>
+                <li>大気球シンポジウム昭和58年度．宇宙科学研究所．東京，宇宙科学研究所，1984，167p，非売．</li>
+                <li>大気球シンポジウム昭和59年度．宇宙科学研究所．東京，宇宙科学研究所，1985，140p，非売．</li>
+                <li>大気球シンポジウム昭和60年度．宇宙科学研究所．東京，宇宙科学研究所，1986，147p，非売．</li>
+                <li>大気球シンポジウム昭和61年度．宇宙科学研究所．東京，宇宙科学研究所，1987，151p，非売．</li>
+                <li>大気球シンポジウム昭和62年度．宇宙科学研究所．東京，宇宙科学研究所，1988，173p，非売．</li>
+                <li>大気球シンポジウム昭和63年度．宇宙科学研究所．東京，宇宙科学研究所，1989，225p，非売．</li>
+                <li>大気球シンポジウム平成元年度．宇宙科学研究所．神奈川，宇宙科学研究所，1990，168p，非売．</li>
+                <li>大気球シンポジウム平成2年度．宇宙科学研究所．神奈川，宇宙科学研究所，1991，178p，非売．</li>
+                <li>大気球シンポジウム平成3年度．宇宙科学研究所．神奈川，宇宙科学研究所，1992，250p，非売．</li>
+                <li>大気球シンポジウム平成4年度．宇宙科学研究所．神奈川，宇宙科学研究所，1993，237p，非売．</li>
+                <li>大気球シンポジウム平成5年度．宇宙科学研究所．神奈川，宇宙科学研究所，1994，139p，非売．</li>
+                <li>大気球シンポジウム平成6年度．宇宙科学研究所．神奈川，宇宙科学研究所，1995，122p，非売．</li>
+                <li>大気球シンポジウム平成7年度．宇宙科学研究所．神奈川，宇宙科学研究所，1996，154p，非売．</li>
+            </ol>
+        </div>
+        <div class="bib-group" id="jbf">
+            <h3>日本気球連盟 逐次刊行物</h3>
+            <ol class="bib-list">
+                <li>ほっとえあばるん（季刊）．日本気球連盟．東京，日本気球連盟，1974–1988（No.1-No.51），10p–50p，非売–¥500．</li>
+                <li>風船（季刊）．日本気球連盟．東京，日本気球連盟，1988秋–（No.52–），約50p，¥500．</li>
+                <li>風船 WINTER Vol.80 1996．日本気球連盟．東京，日本気球連盟，1996，55P，非売．</li>
+                <li>風船 SPRING Vol.81 1996．日本気球連盟．東京，日本気球連盟，1996，48P，非売．</li>
+                <li>風船 SUMMER Vol.82 1996．日本気球連盟．東京，日本気球連盟，1996，39P，非売．</li>
+                <li>風船 AUTUMN Vol.83 1996．日本気球連盟．東京，日本気球連盟，1996，47P，非売．</li>
+                <li>風船 WINTER Vol.84 1997．日本気球連盟．東京，日本気球連盟，1996，47P，非売．</li>
+            </ol>
+        </div>
+        <div class="bib-group" id="books">
+            <h3>ＬＴＡ専門書籍・雑誌・単独レポート</h3>
+            <h4>①雑学</h4>
+            <ol class="bib-list">
+                <li>熱気球野郎たち（ADVEN12月号通巻22号）．高橋敏昭編．東京，アドベン，1977，130p，¥450．</li>
+                <li>空飛ぶ博物誌：熱気球·飛行船·ハンググライダー：99の謎産報デラックス自然科学シリーズ19．大谷松雄編．東京，サンポウジャーナル，1978，158p，¥1500．</li>
+                <li>風船1969–1984：気球生誕200周年記念出版．日本気球連盟編．東京，日本気球連盟，1984，56p，非売．</li>
+            </ol>
+            <h4>②概要・解説</h4>
+            <ol class="bib-list">
+                <li>最近の飛行船．酒井二郎編，関根郡平校閲．東京，航空研究会，1935，243p，¥1.5．</li>
+                <li>飛行船時代．田中新造．東京，朝日ソノラマ，1974，243p，¥1000．</li>
+                <li>気球を飛ばす．西村純．東京，岩波書店，1975，226p，¥1300．</li>
+                <li>華麗なる飛行船．田中新造．東京，未央社，1976，212p，¥900．</li>
+                <li>飛行船：この知られざる航空機．田中新造．東京，未央社，1978，109p，¥3000．</li>
+                <li>飛行船の雑学．田中新造．東京，グラフ社，1983，188p，¥980．</li>
+                <li>飛行船の再発見：新しい LTA 航空機の発想．飯沼和正．東京，1984，222p，¥580．</li>
+                <li>飛行船用語集，飛行船ハンドブック1．100万人の飛行船の会編．東京，100万人の飛行船の会，42p，¥500．</li>
+                <li>飛行船の構造及び飛行，飛行船ハンドブック2．100万人の飛行船の会編．東京，100万人の飛行船の会，37p．</li>
+                <li>飛行船従事者になるには，飛行船ハンドブック3．100万人の飛行船の会編．東京，100万人の飛行船の会，42p，¥500．</li>
+                <li>BALLOON 風と遊ぼう熱気球：大空に描く夢：熱気球の全て．風工房編著，市吉三郎監修．東京，成美堂出版，1992，160p，¥1500．</li>
+            </ol>
+            <h4>③歴史</h4>
+            <ol class="bib-list">
+                <li>最近世界の飛行船．徳永熊雄校閲．大浦元三郎編．東京，博文館，1909，178p，¥0.5．</li>
+                <li>空の驚異ツェッペリン：LZ1から LZ127．圓地與四松．東京，先進社，1929，238p，¥1.6．</li>
+                <li>飛行船もういちど飛びなさい．ジョージフ·フード著，高斎正訳．東京，白金書房，1975，207p，¥980．原文：Joseph F.Hood.THE STORY OF AIRSHIPS.1968．</li>
+                <li>とべ!飛行船．木村秀政．東京，山と渓谷社，1976，168p，¥2300．</li>
+                <li>気球の歴史：講談社現代新書492．篠田皎．東京，講談社，1977，199p¥390．</li>
+                <li>気球の歴史．レナード·コットレル著，西山浅次郎訳．東京，大陸書房，1977，262p，¥1800．原文：Leonard Cottrell. UP IN A BALLOON.1970．</li>
+                <li>気球と飛行船物語，現代教養文庫953.B.H．インファンチェフ著，藤川健治訳編．東京，社会思想社，1977，249p，¥320．</li>
+                <li>はじめに気球ありき．ドナルド·デール·ジャクソン，タイムライフブックス編集部編，木村秀政監修，西山浅次郎大谷内一夫訳．東京，タイムライフブック，1981，176p．</li>
+                <li>マンモス飛行船の時代（日本語版）．ダグラス·ボッティング，タイムライフブックス編集部編，木村秀政監修，筒井正明北山克彦訳．東京，タイムライフブック，1981，180p．</li>
+                <li>飛行船年表，飛行船ハンドブック7．100万人の飛行船の会編．東京，100万人の飛行船の会，43p．</li>
+                <li>夢の空へ：ツェッペリン伯号と初期航空機の時代：第4回特別展．土浦市立博物館．茨城，土浦市立博物館，1990，56p，¥1100（〒込）．</li>
+                <li>飛行船の時代：ツェッペリンのドイツ，丸善ライブラリー078．関根伸一郎．東京，丸善，1993，193p，¥620．</li>
+                <li>大気球のあゆみ．宇宙科学研究所．神奈川，宇宙科学研究所，1993，214p，非売．</li>
+                <li>飛行船ものがたり．天沼春樹．東京，NTT 出版，1995，305p，¥3600．</li>
+                <li>気球の夢（空のユートピア）．喜多尾道冬．東京，朝日新聞社出版局，1996，313P，¥2900．</li>
+            </ol>
+            <h4>④記録</h4>
+            <ol class="bib-list">
+                <li>風船爆弾大作戦：アメリカを惑乱させた謎の紙気球（ボアブックス）．足達左京．東京，学藝書林，1975，238p，¥580．</li>
+                <li>気球エルン号の死．ペール·ウーロフ·スンドマン，松谷健二訳．東京，早川書房，1975，283p，¥870．原本：INGENJOR ANDREES LUFTFARD.PER OLOF SUNDMAN.1969．</li>
+                <li>悲劇の飛行船：ヒンデンブルク号の最後．マイケル·ムーニィ著，筒井正明訳．東京，平凡社，1973，329p，¥1000．原文：Michale Macdonald Mooney.THE HINDENBURG.1972．</li>
+                <li>軍服の青春&lt;陸軍編&gt;陸軍気球訓練部．肥田木安，平櫛孝共著．東京，ノーベル書房，1977．</li>
+                <li>風速0作戦：丸秘気球空挺侵攻計画．鈴木敏夫．東京，図書出版社，1980，214p，¥980．</li>
+                <li>R101号に何が起こったか．田中新造．東京，朝日ソノラマ，1984，201p，¥970．</li>
+                <li>風船1969-1984．日本気球連盟編．東京，日本気球連盟，1984，56P，非売．</li>
+                <li>写真記録風船爆弾：乙女たちの青春．林えいだい編．東京，あきら書店，1985，165P，¥2060．</li>
+                <li>女たちの風船爆弾．林えいだい編．亜紀書房，1985．</li>
+                <li>美砂鳴き砂と風船爆弾の追憶．三木幸蔵．東京，科学書刊，1994．</li>
+            </ol>
+            <h4>⑤社会・経済</h4>
+            <ol class="bib-list">
+                <li>飛行船の将来：日本航空宇宙学会誌第24巻第270号別冊．東昭．東京，日本航空宇宙学会，1976，15p（p309–323），非売．</li>
+                <li>洋上パトロール用としての飛行船の可能性：海洋200カイリ時代を迎えて：外国航空宇宙工業関係者講演会 No.10.A.P.MANNING．東京，（社）日本航空宇宙工業会，1979，23p，非売．</li>
+                <li>LTA 航空機開発に関する海外動向調査：航空宇宙技術動向 No.33．（社）日本航空宇宙工業会．東京，（社）日本航空宇宙工業会，1980，160p，非売．</li>
+                <li>新・飛行船論．田中新造．東京，飛行船開発機構出版部，1986，189p，¥4500．</li>
+            </ol>
+            <h4>⑥法規</h4>
+            <ol class="bib-list">
+                <li>飛行船関係航空法・同施行規則の解説，飛行船ハンドブック5．100万人の飛行船の会編．東京，100万人の飛行船の会，45p，¥500．</li>
+            </ol>
+            <h4>⑦飛行操作</h4>
+            <ol class="bib-list">
+                <li>空で遊ぼうジャンピングバルーン．近藤石像．東京，丸善，1967，88p，¥480．</li>
+                <li>風船学入門，平凡カラー新書09．礒貝浩，松島駿二郎共著．東京，平凡社，1975，144p，¥550．</li>
+                <li>熱気球：駸々堂ユニコンカラー双書058．太田耕治．東京，駸々堂出版，1978，135p，¥515．</li>
+                <li>熱気球：THE BALLOONS．森春樹．東京，講談社，1979，95p，¥2000．</li>
+                <li>アルプス気球の旅．NHK 取材班．東京，日本放送協会，1979，98p，¥1000．</li>
+                <li>竹内靖子の浮遊への招待：熱気球フォトジェニック·テキスト，SKYSPORTS 免許皆伝シリーズ3．竹内靖子．東京，イカロス出版，1994，96p，¥1300．</li>
+            </ol>
+            <h4>⑧製造・整備</h4>
+            <ol class="bib-list">
+                <li>熱気球イカロス5号．梅棹エリオ．東京，中央公論社，1972，219p，¥500．</li>
+                <li>熱気球イカロス5号：中央文庫．梅棹エリオ．東京，中央公論社，1973，251p，¥260．</li>
+                <li>ソーラーバルーン：手づくり造形熱気球．広井力．東京，立風書房，1982，81p，¥1200．</li>
+            </ol>
+            <h4>⑨工学・学術・技術</h4>
+            <ol class="bib-list">
+                <li>航空船工学．関根仁．東京，東学社，1940，315p，¥3.5．</li>
+                <li>シャボン玉の世界．ボイズ，野口広訳．東京，東京図書，1975，154p，¥900．原本：SOAP BUBBLES.C.V.BOYS.1962．</li>
+                <li>LTA 航空機システムシンポジウム．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1977，73p，非売．</li>
+                <li>LTA 航空機システムシンポジウム．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1978，36p，非売．</li>
+                <li>LTA 航空機システムシンポジウム．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1979，42p，非売．</li>
+                <li>LTA 航空機システムシンポジウム．東京大学宇宙航空研究所．東京，東京大学宇宙航空研究所，1980，39p，非売．</li>
+                <li>飛行船の設計．NKK 応用技術研究所訳．東京，ブイヤント航空懇談会，1988，122p，¥6000．原本： AIRSHIP DESIGN.CHARLES P. BURGESS.NEW YORK，RONALD AERONAU TIC LIBRARY，1927，300p．</li>
+                <li>日本気球連盟パイロットハンドブック．日本気球連盟安全委員会編．東京，日本気球連盟安全委員会，1990，198p，¥3000．</li>
+                <li>日本気球連盟 BFA プロパンシステム&amp;パワーライン．日本気球連盟安全委員会編．東京，日本気球連盟安全委員会，1990，67p，¥2000．</li>
+                <li>日本気球連盟パイロットハンドブック NKR プロパンシステム．日本気球連盟安全委員会編．東京，日本気球連盟安全委員会，1990，102p，¥2000．</li>
+                <li>気球工学論文資料集．西村純．東京，文部省宇宙科学研究所，1992，676p，非売．</li>
+                <li>成層圏長期滞留ソーラー飛行船に関する研究：機械技術研究所報告第166号．機械技術研究所．茨城，機械技術研究所，1994，59p，非売．</li>
+            </ol>
+            <h4>⑩調査報告書</h4>
+            <ol class="bib-list">
+                <li>LTA 航空機システムに関する調査研究（49-13）．（財）機械振興協会新機械システムセンター．東京，機械振興協会，1975，316p，非売．</li>
+                <li>LTA 航空機システムに関する第2次調査研究（都市開発産業調査研究報告書50–5）．（財）機械振興協会・新機械システムセンター LTA 航空機システム調査専門委員会．東京，（財）機械振興協会新機械システムセンター，1976，163p，非売．</li>
+                <li>ナスカ気球探検．ジム·ウッドマン，稲村松雄訳．東京，講談社，1979，238p，¥1300．原本：NAZCA.JIM WOODMAN.GERMANY，BERTELSMAN VERLAG GMBH，1977．</li>
+                <li>LTA 航空機システムのテクノロジー·アセスメント：昭和52年度工業技術院技術評価委託調査報告．（財）日本産業技術振興協会．東京，日本産業技術振興協会，1978，296p，非売．</li>
+                <li>LTA 技術のアセスメント：FTL レポート R75-1：No.NSG ー2024：（財）日本産業技術振興協会 TA データバンク52-01. MIT 航空輸送研究所，（財）日本産業技術振興協会訳編．東京，（財）日本産業技術振興協会，1978，48p，非売．</li>
+                <li>気球応用システムの調査報告書．（社）日本航空宇宙工業会．東京，（社）日本航空宇宙工業会，1978，213p，非売．</li>
+                <li>昭和53年度気球応用システムの調査報告書．（社）日本航空宇宙工業会．東京，（社）日本航空宇宙工業会，1979，59p，非売．</li>
+                <li>昭和58年度飛行船システム調査報告書．（社）日本航空宇宙工業会．東京，（社）日本航空宇宙工業会，1984，150p，非売．</li>
+                <li>LTA 航空機に関する調査．高分子応用技術研究組合，東京，高分子応用技術研究組合，1985，109p，非売．</li>
+                <li>双胴型 LTA「ヘリ·シップ」の提案及びその性能計算法：ブイヤント航空1987別冊．安東茂典．東京，ブイヤント航空懇談会，1987，48p，¥2000．</li>
+                <li>新飛行船システム研究会調査報告．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1989，297p．非売．</li>
+                <li>平成元年度新飛行船システム研究会調査報告書．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1990，156p．非売．</li>
+                <li>平成2年度新飛行船システム研究会調査報告：高層広域観測プラットフォームの技術調査．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1991，234p．非売．</li>
+                <li>平成3年度新飛行船システム研究会調査報告：高層広域観測プラットフォームの技術調査．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1992，95p．非売．</li>
+                <li>平成4年度新飛行船システム研究会調査報告．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1993，99p．非売．</li>
+                <li>平成5年度新飛行船システム研究会調査報告：成層圏長期滞留ソーラー飛行船に関する技術調査．（財）日本産業技術振興協会新飛行船システム研究会．東京，（財）日本産業技術振興協会，1994，95p．非売．</li>
+                <li>BALLOON BOMB．朝霞第4中学校 BB スタッフ編．埼玉，朝霞第4中学校，1995，76P，¥500．</li>
+                <li>平成7年度新飛行船システム研究会調査報告書．（財）産業創造研究所新飛行船システム研究会．東京，（財）産業創造研究所，1996，137P，非売．</li>
+                <li>琵琶湖プロジェクト'95報告：'95飛行船観測中間報告と今後の展望．琵琶湖プロジェクト編．京都，琵琶湖プロジェクト．1996，158p，非売．</li>
+            </ol>
+            <h4>⑫青少年向け読み物</h4>
+            <ol class="bib-list">
+                <li>うみからきたあかい気きゅう（母と子の図書室）．征矢清．東京，太平洋出版，1970，170p，¥960．</li>
+                <li>空気の重さをはかるには：いたずらはかせのかがくの本8．板倉聖宣木村正志．東京，国土社，1971，40p，¥1200．</li>
+                <li>風船飛ばしの日．キャロリン·ヘイウッド原作，厨川圭子訳．東京，偕成社，1980，181P，¥980．</li>
+            </ol>
+            <h4>⑬小説</h4>
+            <ol class="bib-list">
+                <li>架空戦記「銀鯨」作戦．田中新造．東京，白金書房，1976，255p，¥1200．</li>
+                <li>銀鯨作戦 PART1．田中新造．東京，ダイヤモンド社，1977，237p，¥980．</li>
+                <li>銀鯨作戦 PART2．田中新造．東京，ダイヤモンド社，1977，217p，¥980．</li>
+                <li>80日間世界一周（角川文庫）．ジュール·ヴェルヌ，江口清訳．東京，角川書店，1978，324p，¥300．原本：未記載</li>
+                <li>気球旅行の五週間：海と空の大ロマン．ジュール·ヴェルヌ，江口清訳．東京，パシフィカ，1979，283p，¥1100．原本：CINQ SEMAINES EN BALLON.JULES VERNE．</li>
+                <li>風船爆弾．鈴木俊平．東京，新潮社，1980，203p，¥900.B．</li>
+                <li>恋の北極・風船旅行．マクドナルド·ハリス，北村太郎訳．東京，綜合社，1980，269p，¥1300．原本：THE BALLOONIST.MacDONALD HARRIS.NY，PHYLLIS SEIDEL LITERARYAGENCY，1976．</li>
+                <li>気球に乗って五週間（集英社文庫）．ジュール·ヴェルヌ，手塚伸一訳．東京，集英社，1993，383p，¥780. B．原本：CINQ SEMAINES EN BALLON.JULES VERNE．</li>
+                <li>飛行船帝国．天沼春樹．東京，ほるぷ出版，1993，p．</li>
+                <li>熱気球殺人事件（講談社文庫）．デビッド·オズボーン，山岡訓子訳．東京，講談社，1994，365p，¥700. B．原本：MURDER ON MARTHA'S VINEYARD.DAVID OSBORN.1989. NY，PETER LAMPACK AGENCY，INC．</li>
+            </ol>
+            <h4>⑭写真集・グラビア</h4>
+            <ol class="bib-list">
+                <li>風物語：IMAGE OF SKY WALKING：'89熱気球世界選手権佐賀大会．柴田三雄．東京，朝日ソノラマ，1989，111p，¥3500．</li>
+                <li>BALLOON TRIP 風まかせ気球に乗って．高本裕久．東京，山と渓谷社，1989，71p，¥2000．</li>
+                <li>熱風佐賀：9TH1989佐賀熱気球世界選手権公式記録写真集．柴田三雄．佐賀，佐賀バルーンフェスタ組織委員会，1990，¥1980．</li>
+                <li>熱風佐賀2．1990佐賀インターナショナル·バルーンフェスタ公式記録写真集．柴田三雄．佐賀，佐賀バルーンフェスタ組織委員会，1990，¥1980．</li>
+                <li>風のくに．平田実．東京，情報センター出版局，1991，121p，¥1300．</li>
+                <li>AIRSHIPS．佐藤勝治．東京，エム·オー·エアシップ，1991，53p，¥7000．</li>
+                <li>市民グラフヨコハマ No.78飛行船から見た素晴らしき横浜．横浜市．神奈川，横浜市，1991，64p，¥300．</li>
+                <li>佐賀に吹く風：1991インターナショナル·バルーンフェスタ．柴田三雄．佐賀，佐賀バルーンフェスタ組織委員会，1992，p，¥1880．</li>
+                <li>佐賀に吹く風2：1992インターナショナル·バルーンフェスタ．柴田三雄．佐賀，佐賀バルーンフェスタ組織委員会，1993，80p，¥1880．</li>
+                <li>佐賀に吹く風3：1993インターナショナル·バルーンフェスタ．柴田三雄．佐賀，佐賀バルーンフェスタ組織委員会，1994，80p，¥1880．</li>
+                <li>空中夢散歩．大高明．東京，清流出版，1996，111P，¥3000．</li>
+            </ol>
+            <h4>⑮絵本</h4>
+            <ol class="bib-list">
+                <li>かぼちゃひこうせんぷっくらこ．レンナート·ヘルシング，奥田継夫木村由利子訳． 1977，32p，¥850．</li>
+                <li>熱気球の詩：カラーアルバム2．岡本信弘．東京，グラフ社，1979，24p，¥800．</li>
+                <li>ききゅうにのったくま．ブライアン·ワイルドスミス，すぎもとよしこ訳．東京，らくだ出版，1983，32p，¥1100．</li>
+                <li>ききゅうにのった1年生!．こんどうちあき．東京，国土社，1985，71p，¥680．</li>
+                <li>ボク風船にのったんだ：ボク·パパ·ママの夢ブック．平田実．東京，講談社，1985，40p，¥1700．</li>
+                <li>飛行船（飛行船と気球が大集合）：講談社カラー百科57メカシリーズ45．講談社編．東京，講談社，1985，¥280．</li>
+                <li>ひこうせんぽっころん（のりものシリーズ）．かわきたりょうじ．東京，童心社，1989，32p，¥930．</li>
+                <li>ドラエモン夢気球（カラーワイド）．相賀徹夫編．東京，小学館，1989，27P，¥450．</li>
+                <li>ひこうせん．ロイシー·マンロ，天沼春樹訳，日本ツェッペリン協会監修．東京，福武書店，1991，32p．原本：BLIMPS.ROXIE MUNRO.USA，DUTTON CHILDREN'S BOOKS，A DIVISION OF PENGUIN BOOKS USA INC．</li>
+            </ol>
+        </div>
+        <div class="bib-group" id="chapters">
+            <h3>ＬＴＡ関連レポートを含む書籍（雑誌、新聞等除く）</h3>
+            <h4>①雑学</h4>
+            <ol class="bib-list">
+                <li>飛行船に就いて（京都経済会講演集第6号）[1917年10月講演]．濱部源次郎．京都，京都経済界，1918，86–108p，非売．</li>
+                <li>飛行船の話（百科通俗講演集第1集）．濱部源次郎（壊徳堂記念会編）．東京，弘道館，1925，163–187p，¥1.5．</li>
+                <li>飛行船の話，機械工業（最新科学講座追巻第2回配本）．和田小六（石井重美原田三夫編）．東京，国民国書（株），1929，111-132p，非売．</li>
+                <li>飛行機と航空船（趣味の絵科学）．白川稔．東京，三省堂，1931，104p，¥1.0 ．（LTA：8，50，78-79，83-88，92-96，98，103-104p）</li>
+                <li>軽航空機（航空読本）．小川太一郎．東京，日本評論社，2–32p，1938，¥1.8．</li>
+            </ol>
+            <h4>②概要・解説</h4>
+            <ol class="bib-list">
+                <li>飛行機及飛行船（青年文庫3）．田中四郎左衛門編．東京，日本青年教育会，1918，322P，価格不明． 3気球飛行船 pp54-81</li>
+                <li>通俗航空問答集．ビーエム·ヘンショウ著，帝国航空教育会訳編纂．東京，帝国航空教育会，1931，153P，¥2.2．飛行船の部 pp63-94</li>
+                <li>熱気球（スカイスポーツブック2）．山海堂編．東京，山海堂，1989，152P，¥1800．</li>
+                <li>新講座航空を科学する上巻：別冊航空情報．東昭．東京，1994，231P，¥2500．気球と飛行船 pp13–18軽航空機 pp27–37</li>
+            </ol>
+            <h4>③歴史</h4>
+            <ol class="bib-list">
+                <li>列国航空船，列国航空機一覧表：航空船の部（海軍及海事要覧）．藤田定市編．東京，（財）有終会，1927，101–107，146–158，251–259，付表 p，¥3.5．</li>
+                <li>写真日本航空50年史．野沢正編．東京，出版共同社，1960，¥580，154P．</li>
+            </ol>
+            <h4>④記録</h4>
+            <ol class="bib-list">
+                <li>海軍航空回想録草創編．桑原虎雄著，小川雷太編．東京，航空新聞社，245P，1964，¥1500．</li>
+                <li>春は飛行船に乗って（たびたびの旅）．真鍋博．東京，文芸春秋，1974，123-136p，¥880．</li>
+                <li>陸戦兵器総覧．草場季喜．東京，1977．風船爆弾と決戦兵器</li>
+                <li>日本航空郵便物語．園山精助．東京，日本郵趣出版，1986，229P，¥2800．</li>
+            </ol>
+            <h4>⑤社会・経済</h4>
+            <ol class="bib-list">
+                <li>飛行船（もうひとつの空コミュータ航空：パンリサーチの本）．武藤直大，木村秀政監修．東京，パンリサーチインスティテュート，1984，114-133p，¥1200．</li>
+                <li>飛行船のプロジェクト（飛行機と飛行船のロマン：大空野郎一代記）．富永泰史．東京，パインリサーチ ·インスティテュート，1986，197–217p，¥1700．</li>
+            </ol>
+            <h4>⑥法規</h4>
+            <ol class="bib-list">
+                <li>航空六法．運輸省航空局監修．東京，鳳文書林出版販売，毎年，¥9000．</li>
+            </ol>
+            <h4>⑦飛行操作</h4>
+            <ol class="bib-list">
+                <li>飛行船・熱気球の飛ばし方（非日常実用講座ジャンボ・ジェット機の飛ばし方）．非日常研究会．東京，同文書院，1994，57-76p，¥1300．</li>
+            </ol>
+            <h4>⑨工学・学術・技術</h4>
+            <ol class="bib-list">
+                <li>航空学（全）．ポール·ルナール著，大日本文明協会訳．東京，大日本文明協会，1914，608P，非売．気球 pp86-250原著 L' Aeronautique . Le Commandant P. Renard 著，仏 L'Aviation . Le Commandant P. Renard 著，仏</li>
+                <li>航空機（現代業書ノ内）．徳富猪一郎監修，伊達源一郎編．東京，民友社，1915，314P，価格不明．第1章2航空船の進歩 pp11-13第5章航空船 pp79-94第6章現今の著名なる航空船 pp95-104第8章航空機の学術的研究概要3航空船に関する研究 pp151-158第9章結論4飛行機と航空船との比較</li>
+                <li>飛行機及び飛行船図説．河本清一．東京，博文館，1918，366P，¥0.78．</li>
+                <li>航空学の参考．大槻清一編．東京，陸軍士官学校高等官集会所，1929，292P，非売第2篇航空理論-第2章気球理論 pp82-89第3篇航空機材-第3章気球 pp132-144第4章飛行船 pp145-149第5篇第2章繋留気球陣地 pp217-220</li>
+                <li>航空用語改訂増補．航空評議会選定．東京，帝国飛行協会，1936，484P，¥3.50．</li>
+                <li>航空工学便覧．日本航空学会航空工学便覧編纂委員会編．東京，河鍋書店，1940．第17篇気球·飛行船 pp765-784</li>
+                <li>最新航空機の研究．加藤正雄，松平義雄．東京，淡海堂出版部，1941（10版），456P，¥3.50．気球航空船の概要 pp2-8気球及航空船 pp25-50最新飛行船 pp328-345等</li>
+                <li>飛行船の空気抵抗と形状の発展（流体抵抗と流線形：流体力学的にみた乗り物の形状デザイン）．牧野光雄．東京，産業図書，1991，56-69p，¥2884．</li>
+                <li>気球と飛行船，気球および飛行船の運動（航空工学II：航空機の性能と飛行力学：機械工学選書）．東昭．東京，裳華房，1989，1–14，86–90p，¥4841．</li>
+                <li>飛行船および気球，大気球（第2版航空宇宙工学便覧）．松川恒雄，矢島信之．東京，丸善，1992，705–708p，1124–1126p，¥46350．</li>
+            </ol>
+            <h4>⑩調査報告書</h4>
+            <ol class="bib-list">
+                <li>成層圏浮遊ステーションの製作とそれによる台風の誕生から消滅までの追跡（技術革新を目ざした基礎的研究の方向に関する調査・地球科学技術の研究開発方向の調査・各論：昭和61年度科学技術庁委託調査研究報告書）．駒林誠，恩田昌彦，山岬正紀．東京，（財）工業開発研究所，1987，246–252p，非売．</li>
+                <li>飛行船の設計（成層圏無線中継システムに関する調査研究中間報告書その2）．（財）電波システム開発センター成層圏無線中継システム調査研究会．，電波システム開発センター成層圏無線中継システム調査研究会，1991，124p-139p，非売．</li>
+            </ol>
+            <h4>⑫青少年向け読み物</h4>
+            <ol class="bib-list">
+                <li>21の気球（少年少女世界文学全集17：アメリカ編第7巻）．デュボア，渡辺茂男訳．東京，講談社，1960，9–120p，¥380.B．</li>
+            </ol>
+            <h4>⑬小説</h4>
+            <ol class="bib-list">
+                <li>ラドラダの秘法を捜せ（上・下）：新潮文庫（カー5–9）．クライブ・カッスラー，中山善之訳．東京，新潮社，各¥520.B．</li>
+                <li>気球に乗った異端者（集英社文庫23）．L·スプレイグ·ディ·キャンプ，冬川亘訳．東京，集英社，1979，209–313p，¥320．原本：HERETIC IN A BALLOON.L.SPRAGUE DE CAMP.USA，THE ISAAC ASIMOV SCIENCE FICTION MAGAZINE COPYRIGHT，1977．</li>
+            </ol>
+            <h4>⑮絵本</h4>
+            <ol class="bib-list">
+                <li>風花とふしぎ谷（しあわせのかけら：星乃ミミナCDブック）．星乃ミミナ．東京，伊藤音楽産業，1993，1-17p，¥2400．</li>
+            </ol>
+        </div>
+        <p class="lead">※ 情報の追加・訂正がありましたら <a href="contact.html">お問い合わせ</a> からお知らせください。</p>
+        <p class="back-link"><a href="articles.html">← 記事一覧へ戻る</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | 会則・会費規定</title>
+    <meta name="description" content="ブイヤント航空懇談会の会則、幹事会細則、会費規定です。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html" class="active">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>会則・会費規定</h1>
+    <p>Society Statute of JBFA</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <div class="toc">
+            <p>目次</p>
+            <ol>
+                <li><a href="#ch1">第1章 総則</a></li>
+                <li><a href="#ch2">第2章 会員</a></li>
+                <li><a href="#ch3">第3章 役員</a></li>
+                <li><a href="#ch4">第4章 会の組織と運営</a></li>
+                <li><a href="#ch5">第5章 会計</a></li>
+                <li><a href="#ch6">第6章 会則の変更等</a></li>
+                <li><a href="#bylaws">幹事会細則・会費規定・附則</a></li>
+            </ol>
+        </div>
+
+        <div class="prose">
+            <h3 id="ch1">第1章　総則</h3>
+            <p><strong>第1条</strong>　本会は、ブイヤント航空懇談会（JBFA：Japan Buoyant Flight Association）と称する。</p>
+            <p><strong>第2条</strong>　本会は、ブイヤント航空ならびに関連分野の学理と技術及び応用に関する知識の交換をはかるとともに、これらの重要性について一般の認識を深めることを目的とする。</p>
+            <p><strong>第3条</strong>　本会は、前条の目的を達するために、次の事業を行う。</p>
+            <ol>
+                <li>研究会、講習会、座談会などの会合を開くこと。</li>
+                <li>機関誌、文献抄録などの出版物を編集、発行すること。</li>
+                <li>ブイヤント航空ならびに関連分野に関する内外の情報を集めること。</li>
+                <li>印刷物や講習会などによって、啓発活動を行うこと。</li>
+                <li>その他前条の目的を達するために必要と認められること。</li>
+            </ol>
+            <p><strong>第4条</strong>　本会は、東京都荒川区南千住8-17-1 都立産業技術高専 航空宇宙工学コース 草谷研究室内に仮事務所を置く。</p>
+
+            <h3 id="ch2">第2章　会員</h3>
+            <p><strong>第5条</strong>　本会の会員は、正会員、学生会員、賛助団体会員及び特別会員、名誉会員の5種類とする。</p>
+            <p><strong>第6条</strong>　会員は、本会の設立趣旨に賛同するものであって、次の各項の一つに該当し、幹事会において入会を承認されたものとする。</p>
+            <ol>
+                <li>ブイヤント航空またはそれに関連のある科学技術の研究にたずさわっているもの。</li>
+                <li>ブイヤント航空に関する調査、統計、文献収集などにたずさわっているもの。</li>
+                <li>ブイヤント航空またはそれに関連のある事業にたずさわっているもの。</li>
+                <li>その他、前3項に準ずるもの。</li>
+            </ol>
+            <p><strong>第7条</strong>　賛助団体会員は、本会の設立趣旨に賛同し、別に定める会費を納入する法人または団体とする。</p>
+            <p><strong>第8条</strong>　個人会員および学生会員は、別に定める会費を納入しなければならない。</p>
+            <p><strong>第9条</strong>　会員は、本会の催す各種の学術的会合に出席することができる。</p>
+            <p><strong>第10条</strong>　会員は、本会の発行する印刷物の配布を受けることができる。</p>
+            <p><strong>第11条</strong>　個人会員、学生会員または賛助団体会員として入会を希望するものは、別に定める手続きにしたがって申し込まなければならない。</p>
+            <p><strong>第12条</strong>　個人会員、学生会員または賛助団体会員で退会を希望するものは会長に届け出て退会することができる。</p>
+            <p><strong>第13条</strong>　会費を1ヶ年以上滞納した会員、および幹事会において理由を明示して、本会の会員として不適当であると決議された会員は退会させられる。</p>
+            <p><strong>第14条</strong>　特別会員は、会長の諮問に応ずることのできる個人で、当会の目的を達成するうえで社会的に極めて有力な個人とする。特別会員の人数及び会費は、別途、幹事会によって決める。</p>
+            <p><strong>第15条</strong>　名誉会員は、過去において当会の発展に大きく寄与した会員とする。名誉会員は会費を免除する。</p>
+            <p><strong>第16条</strong>　特別会員及び名誉会員の推薦、選考は別に定める幹事会細則にもとづくものとする。</p>
+
+            <h3 id="ch3">第3章　役員</h3>
+            <p><strong>第17条</strong>　本会に、会長1名をおく。会長は本会を代表する。</p>
+            <p><strong>第18条</strong>　必要がある場合には、本会に、名誉会長、会長代行、顧問をおくことができる。その推薦、選考は別に定める幹事会細則にもとづくものとする。</p>
+            <p><strong>第19条</strong>　本会に副会長（2名以下）をおく。副会長は、会長または会長代行を補佐する。</p>
+            <p><strong>第20条</strong>　本会に幹事若干名をおく。幹事は会長、副会長および会員のなかから幹事会の議を経て総会で選出する。</p>
+            <p><strong>第21条</strong>　本会に、会計監査2名をおく。会計監査は、幹事会の議を経て会長が委嘱する。</p>
+            <p><strong>第22条</strong>　会長、副会長、幹事、会計監査の任期はそれぞれ1ヶ年とし、再任を妨げない。</p>
+
+            <h3 id="ch4">第4章　会の組織と運営</h3>
+            <p><strong>第23条</strong>　本会の総会は、個人会員及び、賛助団体会員をもって構成する。</p>
+            <ol start="2">
+                <li>総会は、会長、副会長の両方、またはいずれかの要請によって招集することができる。</li>
+                <li>総会は、幹事の過半数の要請によって招集することができる。</li>
+                <li>総会は、個人会員と賛助団体会員の四分の一の要請によって招集することができる。</li>
+                <li>総会の定足数は、個人会員及び賛助団体会員の合計の、三分の一とする。</li>
+                <li>総会は、原則として、年1回開催するものとする。</li>
+            </ol>
+            <p><strong>第24条</strong>　総会は、会長、会長代行、副会長を選出する。</p>
+            <ol start="2">
+                <li>総会は、幹事及び幹事代表を選出する。</li>
+                <li>総会は、会計監査を選出する。</li>
+            </ol>
+            <p><strong>第25条</strong>　本会には、幹事会をおく。</p>
+            <p><strong>第26条</strong>　幹事会は、本会の運営の基本方針を決定する。</p>
+            <p><strong>第27条</strong>　幹事会は、会長、副会長のいずれか、あるいは幹事の要請によって開催する。</p>
+
+            <h3 id="ch5">第5章　会計</h3>
+            <p><strong>第28条</strong>　本会の運営に要する経費は会費、寄付金その他の収入をもって充てる。</p>
+            <p><strong>第29条</strong>　本会は、その設立趣旨に反しない限り、公共機関等から、事業遂行のために必要な経営上その他の援助を受けることができる。</p>
+            <p><strong>第30条</strong>　本会の資産は、会長が管理する。活動に必要な資金、貯金口座については、会計担当幹事が管理する。</p>
+            <p><strong>第31条</strong>　本会の会計年度は毎年4月1日から翌年3月31日までとする。</p>
+
+            <h3 id="ch6">第6章　会則の変更等</h3>
+            <p><strong>第32条</strong>　本会則の変更は、幹事会において幹事の過半数の賛成を得なければ行うことが出来ない。</p>
+            <p><strong>第33条</strong>　本会則の施行にあたって必要な細則は、幹事会の決議によって定める。</p>
+
+            <h3 id="bylaws">幹事会細則（1987年3月）</h3>
+            <p><strong>第1項</strong>　名誉会長、特別会員、名誉会員、顧問及び会長代行は、会長と幹事会の議によって推薦し、当人の承諾によって決定する。</p>
+            <p><strong>第2項</strong>　特別会員の数は、10名前後とする。</p>
+
+            <h3>会費規定（2013年9月改訂）</h3>
+            <!-- 要確認：入会申込書では正会員の年会費が 5,000円 となっています。 -->
+            <ul>
+                <li>賛助団体会員年会費：50,000円／1口、1年</li>
+                <li>個人会員年会費：10,000円／1口、1年</li>
+                <li>学生会員年会費：1,000円／1口、1年</li>
+            </ul>
+            <p>定例会その他の会合に際しては、出席者から会合実費を徴収する。</p>
+
+            <h3>附則</h3>
+            <p>本会則、細則および規定は、1987年5月承認・改正、1988年2月12日改正、1993年3月10日改正、1999年5月修正、2002年5月改正、2009年5月仮事務所住所変更、2013年9月改正・仮事務所住所変更。</p>
+        </div>
+        <p class="back-link"><a href="membership.html">← 入会案内へ戻る</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

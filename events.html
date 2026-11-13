@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブイヤント航空懇談会 | イベント</title>
-    <meta name="description" content="ブイヤント航空懇談会が開催する講演会・見学会などのイベント情報です。">
+    <meta name="description" content="ブイヤント航空懇談会が開催するブイヤント航空講演会・例会などのイベント情報です。">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -228,15 +274,25 @@
 
 <main>
 
+    <!-- ▼ 講演会について ▼ -->
+    <section class="container page-section">
+        <h2 class="section-heading">ブイヤント航空講演会</h2>
+        <p class="lead">　本講演会は、飛行船・気球に関する学術的な研究のほか、技術的・経験的な知見の報告・解説等を対象として、飛行船・気球研究者と愛好者の交流ネットワークの拡充、および将来のコミュニティのコアの育成を図ることを目的としています。</p>
+        <p class="lead">　当会では、技術や歴史を伝承することの一環として、年1回の「ブイヤント航空講演会」と年2回の例会を開催しています。講演会と同日に総会・懇親会を開催することもあります。</p>
+    </section>
+
     <!-- ▼ 今後のイベント（新しいものを上に追加） ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">開催予定のイベント</h2>
+        <!-- 開催が決まったら、下の <p> を削除して news-link-card を追加してください
         <div class="news-list">
-            <a href="event1.html" class="news-link-card">
+            <a href="event-xxxx.html" class="news-link-card">
                 <span class="news-date">20xx.00.00</span>
-                <h3>（イベント名）</h3>
+                <h3>第6回ブイヤント航空講演会</h3>
             </a>
         </div>
+        -->
+        <p class="lead">現在、開催予定のイベントはありません。コロナ禍以降中断していた活動を順次再開していきますので、決まり次第このページとトップページのNewsでお知らせします。</p>
     </section>
 
     <!-- ▼ 過去のイベント ▼ -->
@@ -244,11 +300,29 @@
         <div class="container">
             <h2 class="section-heading">過去のイベント</h2>
             <div class="news-list">
-                <a href="event0.html" class="news-link-card">
-                    <span class="news-date">20xx.00.00</span>
-                    <h3>（イベント名）</h3>
+                <a href="event-2018-lecture5.html" class="news-link-card">
+                    <span class="news-date">2018.07.16</span>
+                    <div class="card-body">
+                        <h3>第5回ブイヤント航空講演会・平成29年度総会</h3>
+                        <p>東京都立産業技術高等専門学校 本館9階 会議室</p>
+                    </div>
+                </a>
+                <a href="event-2017-lecture4.html" class="news-link-card">
+                    <span class="news-date">2017.07.17</span>
+                    <div class="card-body">
+                        <h3>第4回ブイヤント航空講演会</h3>
+                        <p>東京都立産業技術高等専門学校 本棟9階 会議室</p>
+                    </div>
+                </a>
+                <a href="founding.html#footsteps" class="news-link-card">
+                    <span class="news-date">1974.06.14</span>
+                    <div class="card-body">
+                        <h3>ブイヤント航空懇談会 発足記念「講演と映画の会」</h3>
+                        <p>朝日新聞社講堂</p>
+                    </div>
                 </a>
             </div>
+            <p class="lead" style="margin-top:2rem;">※ 第1回〜第3回のプログラムは現在整理中です。</p>
         </div>
     </section>
 

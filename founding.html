@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | 設立と黎明期の記録</title>
+    <meta name="description" content="ブイヤント航空懇談会の設立趣意書、第1回発起人会、設立趣旨、設立当初の会則、黎明期の要覧と足跡の記録です。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html" class="active">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>設立と黎明期の記録</h1>
+    <p>史誌編纂室</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <p class="note">本ページの役員・会則・会費などは、すべて発足当時のものです。現在の会則は <a href="rules.html">会則・会費規定</a>、現在の役員は <a href="history.html">学会紹介</a> をご覧ください。</p>
+        <div class="toc">
+            <p>目次</p>
+            <ol>
+                <li><a href="#prospectus">発起人会の呼びかけ設立趣意書（昭和44年4月）</a></li>
+                <li><a href="#promoters">第1回発起人会（昭和48年12月13日）</a></li>
+                <li><a href="#purpose">ブイヤント航空懇談会設立趣旨</a></li>
+                <li><a href="#old-rules">設立当初の会則・会費規定（抜萃）</a></li>
+                <li><a href="#launch">黎明期の要覧 ― 発足・事業概要</a></li>
+                <li><a href="#officers">黎明期の要覧 ― 役員・委員・委員会</a></li>
+                <li><a href="#committees">委員会活動の始動</a></li>
+                <li><a href="#footsteps">発足当初の足跡</a></li>
+            </ol>
+        </div>
+
+        <div class="prose">
+            <h3 id="prospectus">1. 発起人会の呼びかけ設立趣意書（昭和44年4月）</h3>
+            <h4>「日本航空船・気球協会設立趣意書」</h4>
+            <p>　人間は古くから鳥のように空中を飛行することを空想し、雲のように空中に浮遊することを夢想してきました。大空にかけた人類の夢と期待は、今世紀に入つて急速に現実となり、遂に、大気圏外に飛翔する宇宙時代の緒を開くまでに至りました。然し、このような航空手段の驚異的発展にもかゝわらず、なお一面的・部分的開発に止つている事実を指摘しなければなりません。</p>
+            <p>　現在の飛行機による航空手段は主として軍事利用の要求から異常な発達をとげ、より速く長距離飛行することは出来るようになりましたが、速度と機体の大型化に伴つて、大滑走路を必要とするに至りました。</p>
+            <p>　航空船や気球は浮遊を主とする航空手段であり、攻撃に対して弱いという致命的欠陥のため、軍事上の利用価値を失いましたが、飛行機がプロペラ・エンヂンやジェット・エンヂンによる推進力から揚力を得るのに対して、空気より軽いガスの浮力を直接利用するという、原理上・構造上の決定的な相違があります。然し、それ故に、航空船や気球は本質的に非軍事的平和的航空手段であり、浮揚力・推進方法等に関する問題点の技術的解決によつては、飛行機に劣らない利用価値が十分に期待されるものであります。</p>
+            <p>　特に、陸上交通、海上交通が技術的にも経済的にも社会的にも限界に達しつゝあるとき、貨客の輸送手段としての航空船の研究・開発は時代の要求となりつつあるといいえますし、西独や米国では既に新しい見地から研究に着手しております。</p>
+            <p>　一方ガス浮力を利用する空のスポーツとしては、自由気球なるものが古くから欧米にあります。然しこれはスポーツといわんより一種の冒険的要素を持つ反面、甚だ高価につくため、五十年来今日も尚欧米一部の人士によつて行はれていますが、欧米においてすら水上ヨット程の普及をみておりません。ましてわが国のように四面海に囲まれた地理的条件下では欧米流の自由気球を楽しめる地域は極めて一部に限られ、今日迄実施者も皆無であります。然らば日本では自由気球のような夢のあるスポーツを楽しむことが不可能であるか？　実は自由気球だけが気球スポーツでなく、もつとスポーツ性の豊かな、然も普及性の高い気球スポーツの存在が戦前日本人によつて発見指摘されており、称してジャンピング・バルーンというものですが、昨年欧米気球界にその概要が紹介されて以来、彼等の間ではこれを「スペース・ホッピング」と呼称し各方面からの期待が寄せられつゝあります。</p>
+            <p>　国土の狭いわが国では経済の高度成長に伴い若人達は徒らに機械文明に追いまくられ、生活の源泉ともなるべきレジヤーも亦過密のとりことなつて、健康的な精力のはけ口を失い、惹いては増大する社会悪の過密をすらもたらし、国民をして向うべき指標を見失わせつゝあるという誠に憂うべき現状ではありますまいか。</p>
+            <p>　若人達の夢を天に継ぎ、団体スポーツとしての豪快、スリルに富むジャンピング・バルーンなる気球遊技を通じて、次代を背負ふ彼等の心身の鍛錬、体育の向上、精神昂揚に資し、然も今日世界注目の標となりつゝある新しい気球遊技の普及を期し度いものであります。</p>
+            <p>　敗戦と占領という特殊事情のため抑制されてきたとはいえ、戦前の優れた実績をもつ日本の航空関係の研究・開発技術が今後の新しい分野としての航空船に注目すると共に、欧米在来の気球材料を以つてしては企て得なかつた新しい気球スポーツの可能性が考えられるに至つている事実は、わが国の産業開発のために、当協会設立の意義が充分存るものと考えられます。よつて、ここに日本航空船・気球協会を設立し、個人たると法人たるとを問はず、広く同識者の結集を求め、次の事業を行なうことゝ致したいと存じます。</p>
+            <ol>
+                <li>航空船の研究・開発の助成と促進</li>
+                <li>気球によるスポーツの開発と指導</li>
+                <li>航空船・気球に関するP・R活動</li>
+                <li>航空船・気球スポーツ開発に必要な取締法規類についての献策</li>
+            </ol>
+            <p>　協会の活動資金は、会費、寄付金品、助成金による他、航空船・気球による広告、宣伝等の積極的事業化による事業収入によつて、充足する途もあるものと考えます。</p>
+            <p>　協会の組織、規約、運営については、発起人会の協議によつて決定することとし、ここに設立趣意を御披露致し、発起人として、御賛同、御参画下さるよう御勧誘申し上げる次第であります。</p>
+            <p class="signature">昭和四十四年四月<br>日本航空船・気球協会設立準備会<br>代表　近藤石象<br>全国科学技術団体総連合気付<br>東京都千代田区北ノ丸公園二－一 科学技術館内</p>
+            <p class="note-inline">※ 現在の本部所在地と電話番号は変更になっています。</p>
+
+            <h3 id="promoters">2. 第1回発起人会（昭和48年12月13日）於：学士会館</h3>
+            <h4>発起人（当日出席者）</h4>
+            <ul>
+                <li>笹森 巽（建材試験センター）</li>
+                <li>木村秀政（日本大学名誉教授、航空機設計者、航空機研究者）</li>
+                <li>西堀栄三郎（日本生産性本部理事、日本規格協会）</li>
+                <li>寺田一彦（新日本製鉄相模原技術センター、元気象庁海洋気象部長、食糧農業機構）</li>
+                <li>加藤愛雄（東海大学宇宙工学科）</li>
+                <li>井樽要嗣</li>
+                <li>和田忠太（後、技術士協同組合初代理事長）</li>
+                <li>竹谷光雄</li>
+                <li>長沢武助（技術士）</li>
+                <li>肥田木 安（防衛弘済会常務理事、元陸軍少佐「ふ」号作戦連隊長補佐）</li>
+                <li>田中新造（オリエント飛行船）</li>
+                <li>近藤俊清（科学振興センター社長）</li>
+                <li>近藤石象（全国科学技術団体総連合）</li>
+                <li>奥村和夫（日本科学技術振興財団）</li>
+            </ul>
+            <h4>議事概要</h4>
+            <p>　座長 笹森巽。趣意書、趣意書に敷衍して会則の承認、発起人全員委員となる、会費は団体1口10万円・学生団体半額・個人4,000円、予算規模当面600万円程度とすることを決定。</p>
+
+            <h3 id="purpose">3. ブイヤント航空懇談会設立趣旨</h3>
+            <p>　航空機を分類しますとHTA航空機（Heavier than Air の略、即ち空気より重い航空機）とLTA航空機（Lighter than Air の略、即ち空気より軽い航空機）になります。</p>
+            <p>　HTA航空機の方は今日迄世界各国ともが力を入れその大型化、高速化、安全化がはかられて参りましたが、これ以上科学技術的に進めることは公害問題、空港問題などで既に限界に達したという感がします。</p>
+            <p>　LTA航空機の方は更に分類しますと飛行船と気球等になります。飛行船については西独・ソ連・アメリカ・イギリス等でその原理による航空方式に再び関心がもたれ、近代革新技術の成果を組合せて将来の輸送問題の解決に一役買わせようとする動きがあります。</p>
+            <p>　勿論40年前の飛行船と同様のものが、唯材料等の一部の革新技術だけによって再び同様な姿で再現されるものとは限らないでしょう。</p>
+            <p>　わが国ではかつての飛行船については、製作や運行の歴史と経験を余りもたなかったためもあり、以上の諸先進国の動きについて一般に余り関心がもたれていませんが、諸先進国における飛行船リヴァイヴァルの動きは最近急激に盛り上りつゝあるようにうかがえます。</p>
+            <p>　ソ連、アメリカ、西独のような大陸国に比べ、英国と日本は地理的条件が飛行船再開発の必要性にまつわられていることでは共通するものを持っています。そこで英国では3年前から Airship Association を発足させ、その間に二つの船舶会社が夫々 Cargo Airship Co. Ltd. 及び Airfloat Transport Ltd. を滑り出させて飛行船再開発に着手する一方、フランスとのSST Concorde の共同開発を一方的に手を切ってまでも秘かに飛行船再開発に邁進せんとしている様子でありますが、その内容は殆ど公表されていません。英国は日本に比べれば人口も少い上に島国とはいい乍ら日本に比べれば逆に平地に恵まれている国です。つまり上記各国と比べた場合、日本が一番飛行船再開発の必需性に迫られている国といっても過言ではありません。</p>
+            <p>　気球の方は観測気球、C.M気球のほか、欧米では空のスポーツとして自由気球が一部に愛好されております。最近では超高空繋留気球で風力発電や太陽電池発電などの構想も発表されております。</p>
+            <p>　わが国においても、観測気球、CM気球のほか、若人達の間で漸く熱気球や、ジャンピングバルーン等がレジャーとして、楽しまれる気運が起りつゝあります。</p>
+            <p>　大気圏の開発利用を積極的に促進するために、輸送用の飛行船、観測用、C.M用、スポーツ用等の気球の研究利用の必要性が痛感されます。</p>
+            <p>　そこで私共はこれらの問題について関心を持つ有志が集って旧臘「ブイヤント航空懇談会」を結成発足致し、見過されているわが国での飛行船再開発の意義を各界に訴えて新しい空の運輸交通方式の確立に資すると共に、併せて気球文化の向上に資せんことを期するものであります。</p>
+
+            <h3 id="old-rules">4. 設立当初の会則・会費規定（抜萃）</h3>
+            <p class="note-inline">※ 発足当時のものですので現在は異なります。</p>
+            <p><strong>第1条</strong>　本会は、ブイヤント航空懇談会と称する。（Japan Buoyant Flight Association）</p>
+            <p><strong>第2条</strong>　本会は、ブイヤント航空ならびに関連分野の学理と技術に関する知識の交換をはかるとともに、これらの重要性について一般の認識を深めることを目的とする。</p>
+            <p><strong>第3条</strong>　本会は、前条の目的を達するため、次の事業を行う。</p>
+            <ol>
+                <li>研究会、講習会、座談会などの会合を開くこと。</li>
+                <li>機関誌、文献抄録などの出版物を編集、発行すること。</li>
+                <li>ブイヤント航空ならびに関連分野に関する内外の情報を集めること。</li>
+                <li>印刷物や講演会などによって、啓蒙活動を行うこと。</li>
+                <li>その他前条の目的を達するために必要と認められること。</li>
+            </ol>
+            <p><strong>第4条</strong>　本会の事務局は、東京都千代田区北の丸公園2-1、科学技術館気付、全国科学技術団体総合事務局内に置く。</p>
+            <p><strong>第5条</strong>　本会の会員は、個人会員および団体会員の二種類とする。</p>
+            <p><strong>第6条</strong>　個人会員は、本会の設立趣旨に賛同するものであって、次の各項の一に該当し、委員会において入会を承認されたものとする。</p>
+            <ol>
+                <li>ブイヤント航空またはそれに関連のある科学技術の研究にたずさわっているもの。</li>
+                <li>ブイヤント航空に関する調査、統計、文献蒐集などにたずさわっているもの。</li>
+                <li>ブイヤント航空またはそれに関連のある事業にたずさわっているもの。</li>
+                <li>その他前三項に準ずるもの。</li>
+            </ol>
+            <p><strong>第7条</strong>　団体会員は、本会の設立趣旨に賛同し、別に定める会費を納入する法人または団体とする。</p>
+            <p><strong>第8条</strong>　個人会員は、別に定める会費を納入しなければならない。</p>
+            <p><strong>第9条</strong>　個人会員および団体会員に属する者は、本会の催す各種の学術的会合に出席することができる。</p>
+            <p><strong>第10条</strong>　会員は、本会の発行する印刷物の配布を受けることができる。</p>
+            <p><strong>第11条</strong>　個人会員、または団体会員として入会を希望する者は、別に定める手続きにしたがって申し込まなければならない。</p>
+            <h4>会費規定（発足当時）</h4>
+            <p>団体会員会費：年100,000円、学生団体会員会費：年50,000円、個人会員会費：年4,000円。</p>
+
+            <h3 id="launch">5. 黎明期の要覧 ― 発足・事業概要</h3>
+            <h4>ブイヤント航空懇談会の発足</h4>
+            <p>　元陸軍気象技師で後関東軍気球隊長だった近藤石象氏は、和紙とコンニャク糊で作った気球に爆弾を積んで、偏西風に乗せその後アメリカ攻撃に使ったものを、満洲においては人を乗せて移動させることに成功し、終戦後は、その平和利用を考案され、ジャンピングバルーンとしてレジャー用スポーツに利用されていた。近藤氏は、これを国際的に普及発達させるべく、アメリカに関してはL.T.A協会（ライター・ザン・エヤ・ソサイエティ）に入会され、情報を収集し、ドイツに関しては自ら行かれ自由気球愛好者と意見交換をし、イギリスに関してはエヤシップ・アソシエーションのメンバーとなって情報を集められている間に、飛行船の再開発の兆候を察知された。西堀栄三郎先生に相談されたところ、わが国としても積極的に調査研究する必要あり、そのために団体を作ることが適当であるとの判断を下された。団体を作るについては、建材試験センターの笹森巽会長に相談し、調査研究については木村秀政先生のご賛同をうるようにとのご指示であった。幸いにして両先生のご快諾をえて、公益法人化するまで実績を積んでおくために、ブイヤント航空懇談会として発足したのは、昭和48年12月13日のことであった。</p>
+            <h4>事業概要</h4>
+            <ul>
+                <li><strong>研究会の開催：</strong>必要に応じ各専門別の研究調査分科会を団体会員、個人会員によつて組織し、定期的に会合を催して、研究調査を推進させる。</li>
+                <li><strong>講演、シンポジウムなどの開催：</strong>一般の参加を得て、知識の普及、成果の発表の場として、適宜催す。</li>
+                <li><strong>機関誌の刊行：</strong>会員相互の知識の交換の場として、機関誌を発行する。当分（季刊）とする。</li>
+                <li><strong>献策：</strong>政界、官界、財界等への献策を必要に応じて行う。</li>
+                <li><strong>飛行船再開発に関する海外情報の抄録：</strong>米、ソ、独、英、仏における飛行船情報記事の抄録（翻訳）を毎月一回以上速報として、団体会員に配布する他、その中から、原文コピー、又は全訳希望の向にはその取継をする。</li>
+                <li><strong>コンサルタント業務：</strong>飛行船、気球等の利用、企画等に関しコンサルタント業務を行う。</li>
+                <li><strong>その他：</strong>要すれば諸外国における飛行船再開発状況の調査団を編成し、又国際会議へも代表を参加せしめ、海外より関連専門家を招へいする等海外との技術交流を計る。</li>
+            </ul>
+
+            <h3 id="officers">6. 黎明期の要覧 ― 役員・委員・委員会</h3>
+            <h4>役員人事</h4>
+            <ul>
+                <li>会長代理：笹森 巽</li>
+                <li>副会長：木村秀政（日本大学名誉教授）、西堀栄三郎（日本山岳会会長、理学博士、元京大助教授、元東芝技術本部長）</li>
+                <li>幹事：渡辺立樹、近藤俊清（科学振興センター社長）</li>
+                <li>事務局：（局長）近藤石象（全国科学技術団体総連合）、（補佐）奥村和夫（日本科学技術振興財団）</li>
+            </ul>
+            <h4>委員（五十音順）</h4>
+            <ul>
+                <li>石井千尋（青山学院大学理工学部、元仁科研究室員、元気象研究所地球電磁気研究部長）</li>
+                <li>井樽要嗣</li>
+                <li>小沢博勝（日本エアロテック社長、飛行船整備士、技術士航空宇宙）</li>
+                <li>加藤愛雄（東海大学航空宇宙学科）</li>
+                <li>郡 捷（運輸調査局、航空記者）</li>
+                <li>清水宜雄</li>
+                <li>鈴木 英（日本電機顧問、元海軍中佐）</li>
+                <li>竹谷光夫</li>
+                <li>田中新造（オリエント飛行船社長、飛行船開発機構代表）</li>
+                <li>寺田一彦（新日本製鐵、気象庁海洋気象部長、国立防災センター所長、理学博士）</li>
+                <li>長沢武助（技術コンサルタント）</li>
+                <li>肥田木 安（防衛弘済会常務理事）</li>
+                <li>真鍋 博（イラストレーター、作家）</li>
+                <li>和田忠太（技術士協同組合理事長）</li>
+                <li>牧野光雄（日本大学理工学部機械工学科）</li>
+                <li>門奈五兵（日本酸素、元原子力委員会専門委員）</li>
+                <li>林 一郎（京和産業）</li>
+            </ul>
+            <h4>委員会</h4>
+            <ul>
+                <li><strong>企画委員会：</strong>（委員長）西堀栄三郎、（副委員長）近藤俊清、（委員）笹森巽、寺田一彦、鈴木英、長沢武助、田中新造、近藤石象、奥村和夫</li>
+                <li><strong>研究調査委員会：</strong>（委員長）木村秀政、（副委員長）寺田一彦、（委員）西堀栄三郎、加藤愛雄、肥田木安、田中新造、和田忠太、小沢博勝、石井千尋、牧野光雄、（幹事）近藤俊清、近藤石象、奥村和夫</li>
+                <li><strong>編集委員会：</strong>（委員長）郡捷、（副委員長）田中新造、（委員）石井千尋、清水宜雄、真鍋博、小沢博勝、近藤俊清、近藤石象、奥村和夫</li>
+                <li><strong>財務委員会：</strong>（委員長）笹森巽、（委員）渡辺立樹、井樽要嗣、竹谷光雄、近藤俊清、近藤石象、奥村和夫</li>
+            </ul>
+
+            <h3 id="committees">7. 委員会活動の始動</h3>
+            <h4>第1回委員会（昭和49年1月16日）於：学士会館</h4>
+            <p>出席：木村秀政、西堀栄三郎、加藤愛雄、小澤博勝、田中新造、郡捷、竹谷光夫、寺田一彦、真鍋博、近藤俊清、近藤石象、奥村和夫</p>
+            <p>議事概要：役員人事（会長代理）笹森巽、（副会長）木村秀政、西堀栄三郎、（監事）渡辺立樹、近藤俊清、（事務局長）近藤石象、（局長補佐）奥村和夫</p>
+            <h4>第1回編集委員会（昭和49年1月30日）於：科学技術館</h4>
+            <p>出席：郡委員長、田中副委員長、石井委員、小沢委員、近藤石幹事</p>
+            <p>議事概要：創刊号「ブイヤント航空」B5版本文24頁のものを季刊で発刊すること。発行者 ブイヤント航空懇談会事務局長 近藤石象、編集者 同懇談会編集委員長 郡捷。</p>
+            <h4>第1回研究調査委員会（昭和49年2月8日）於：学士会館303</h4>
+            <p>出席：木村委員長、寺田副委員長、加藤委員、田中委員、石井委員、和田委員、牧野委員、門奈五兵委員、近藤石幹事</p>
+            <h4>第1回企画委員会（昭和49年2月20日）於：学士会館303</h4>
+            <p>出席：西堀委員長、近藤石副委員長、寺田委員、長沢委員、竹谷委員〔財務〕、渡辺委員〔財務〕、近藤幹事、奥村幹事</p>
+            <p>議事内容：5月頃飛行船の必需性を強調する講演会を朝日講堂で開催すること。荷役用飛行船の実験的研究を推進すること。研究調査委員会を組織化すること。本四連絡橋建設に飛行船（5トン級）を利用するよう推進すること。英文パンフレットを作り海外情報を積極的に集めること。必要あれば海外調査団を派遣すること。コンサルティング業務を行うこと（荷役用飛行船、競技用飛行船、熱気球、自由気球、ジャンピングバルーン、法規、材料、燃料、安全管理、運航技術、保険等）。官庁との連絡を密にすること。会のマークを制定すること。</p>
+
+            <h3 id="footsteps">8. 発足当初の足跡</h3>
+        </div>
+        <div class="timeline" style="margin-top:1.5rem;">
+            <div class="timeline-item">
+                <span class="timeline-year">昭和46年（1971年）7月30日</span>
+                <p>初めて「航空船気球協会」（仮称）の設立準備打合せ会を開いたが、その後暫時中断</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">昭和48年（1973年）12月13日</span>
+                <p>東京一ツ橋学士会館に発起人24名中17名が集って、「ブイヤント航空懇談会」を結成した</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">昭和49年（1974年）1月16日</span>
+                <p>第一回委員会を開き、企画、研究調査、編集、財務の四委員会と委員とを決定する</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1月30日</span>
+                <p>編集委員会を開き、機関誌編集の方針を議し、誌名を「ブイヤント航空」とし、当分B5版24頁の季刊誌とすることとした</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2月8日</span>
+                <p>研究調査委員会を開催。木村研究調査委員長より揚抗比について飛行船と飛行機の違いについての解説あり、飛行船は大きい程経済的なりとの説明がなされた。又、日本酸素K.K.の門奈五兵博士より世界のヘリウム市場の話をきく</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2月20日</span>
+                <p>企画財務合同委員会を開催</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">5月1日</span>
+                <p>定例第二回委員会を開催。笹森会長代理死去に伴い後任として、副会長木村秀政博士を会長として仰ぐ件につき、委員24名中当日出席委員16名全員の拍手で決定した。又、笹森前財務委員長の後任として西堀副会長、同副委員長として渡辺立樹氏を決定。委員会終了後、田中新造委員を講師として飛行船とその運航技術について講義を聞き、今後再開発せらるべきものを考へるに必要な勉強を出席の全員がする機会を得た</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">5月20日</span>
+                <p>第2回研究調査委員会を催す</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">6月14日</span>
+                <p>朝日新聞社講堂において、ブイヤント航空懇談会の発足を記念して、講演と映画の会を催す</p>
+            </div>
+        </div>
+        <p class="back-link"><a href="articles.html">← 記事一覧へ戻る</a>　｜　<a href="founding-reason.html">何故設立されたのか →</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

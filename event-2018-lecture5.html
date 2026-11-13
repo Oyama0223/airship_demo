@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | 第5回ブイヤント航空講演会（2018）</title>
+    <meta name="description" content="2018年7月16日に開催した第5回ブイヤント航空講演会・平成29年度総会のプログラムです。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html" class="active">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>第5回ブイヤント航空講演会</h1>
+    <p>2018.07.16</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <h2 class="section-heading">開催概要</h2>
+        <table class="info-table kv">
+            <tr><th>日時</th><td>2018年（平成30年）7月16日（月・祝／海の日）<br>11:00 開場／11:30 総会／12:25 講演会／17:30 懇親会</td></tr>
+            <tr><th>会場</th><td>東京都立産業技術高等専門学校 本館9階 会議室<br>〒116-0003 東京都荒川区南千住8-17-1<br>直接9階の受付へお越しください。本館の一番右側の「大型エレベータ」をご利用ください（小型エレベータは8階止まりです）。</td></tr>
+            <tr><th>講演会費</th><td>1,000円（学生500円）</td></tr>
+            <tr><th>懇親会費</th><td>4,000円（学生2,000円）</td></tr>
+            <tr><th>年会費</th><td>5,000円（学生1,000円）を当日あわせて徴収</td></tr>
+        </table>
+        <p class="lead" style="margin-top:1rem;">※ 昼食は各自で済ませるか、ご持参ください。</p>
+    </section>
+
+    <section class="container page-section">
+        <h2 class="section-heading">平成29年度総会</h2>
+        <div class="table-wrap">
+        <table class="info-table">
+            <thead><tr><th>時間</th><th>内容</th></tr></thead>
+            <tbody>
+                <tr><td class="time">11:30</td><td>総会開会の挨拶　西村 純（会長：東京大学名誉教授、JAXA宇宙科学研究所名誉教授・元所長）</td></tr>
+                <tr><td class="time">11:35〜12:00</td><td>事業報告、決算報告、予算案、事業計画 等</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <section class="container page-section">
+        <h2 class="section-heading">講演プログラム</h2>
+        <p class="lead">○印は登壇者</p>
+        <div class="table-wrap">
+        <table class="info-table">
+            <thead><tr><th>時間</th><th>演題・講演者</th></tr></thead>
+            <tbody>
+                <tr><td class="time">12:25</td><td>開催の挨拶　西村 純（会長）</td></tr>
+                <tr class="session"><td colspan="2">第1部　座長：諏訪吉昭（防衛省 海上自衛隊）</td></tr>
+                <tr><td class="time">12:30〜12:55</td><td>1. テザー型UAVの運動の定式化について<br>○藤井裕矩（TMIT &amp; 首都大学東京）、冨田 匠（首都大学東京 日野）、草谷大郎（都立産技高専）、内山賢治（日本大学 航空）</td></tr>
+                <tr><td class="time">12:55〜13:20</td><td>2. 気球搭載γ線望遠鏡のための膜材料を用いた風船式与圧容器ゴンドラの開発<br>○六條宏紀（名古屋大学 理学研究科）</td></tr>
+                <tr><td class="time">13:20〜13:45</td><td>3. Inflatable Flying Wing の試作とその評価<br>○河村政昭、荒井直輝、遠藤恵太（帝京大学）</td></tr>
+                <tr><td class="time">13:45〜14:10</td><td>4. 一体型オールインフレータブル飛行機モデルの無人展開から飛行まで<br>○草谷大郎（都立産技高専）、黒田茂将（㈱川島製作所）、冨田 匠（首都大学東京 日野）、藤井裕矩（TMIT &amp; 首都大学東京）</td></tr>
+                <tr class="break"><td class="time">14:10〜14:30</td><td>休憩</td></tr>
+                <tr class="session"><td colspan="2">第2部　座長：草谷大郎（都立産業技術高専 航空宇宙）</td></tr>
+                <tr><td class="time">14:30〜15:05</td><td>5. ふうせん宇宙旅行プロジェクト<br>○岩谷圭介（㈱岩谷技研）</td></tr>
+                <tr><td class="time">15:05〜15:30</td><td>6. 宇宙エレベーターと係留気球について<br>○島崎丈太（㈳宇宙エレベーター協会）</td></tr>
+                <tr class="break"><td class="time">15:30〜15:40</td><td>休憩</td></tr>
+                <tr class="session"><td colspan="2">第3部　座長：川島孝幸（日本大学 理工学部 航空宇宙工学科）</td></tr>
+                <tr><td class="time">15:40〜16:05</td><td>7. 再び成層圏都市構想について<br>○阿竹克人（㈱阿竹研究所）</td></tr>
+                <tr><td class="time">16:05〜16:30</td><td>8. 人力羽ばたき飛行船の検討<br>○諏訪吉昭（防衛省 海上自衛隊）</td></tr>
+                <tr><td class="time">16:30〜16:55</td><td>9. 80m級高層係留LTA実証実験機の課題<br>○恩田昌彦（イヌイSLLC）</td></tr>
+                <tr><td class="time">16:55</td><td>閉会（懇親会 17:30〜21:00 南千住駅西口ロータリー）</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="back-link"><a href="events.html">← イベント一覧へ戻る</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

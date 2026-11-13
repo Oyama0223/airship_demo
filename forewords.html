@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | 機関誌「ブイヤント航空」巻頭言より</title>
+    <meta name="description" content="機関誌「ブイヤント航空」創刊号（1974年）からVol.2 No.1（1975年）までの巻頭言です。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html" class="active">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>「ブイヤント航空」巻頭言より</h1>
+    <p>Forewords, 1974–1975</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <p class="note">機関誌「ブイヤント航空」創刊当初の巻頭言を、当時の表記をできるだけそのまま掲載しています。</p>
+        <div class="toc">
+            <p>目次</p>
+            <ol>
+                <li><a href="#kimura">巻頭言　会長 木村秀政（創刊号 1974.06.01）</a></li>
+                <li><a href="#nishibori-1">ブイヤント航空懇談会結成発足の意義　副会長 西堀栄三郎（創刊号 1974.06.01）</a></li>
+                <li><a href="#nishibori-2">巻頭言　副会長 西堀栄三郎（Vol.1 No.2 1974.09.01）</a></li>
+                <li><a href="#kondo-sekizo">巻頭言　事務局長 近藤石象（Vol.1 No.3 1974.12.01）</a></li>
+                <li><a href="#kondo-toshikiyo">巻頭言　監事 近藤俊清（Vol.2 No.1 1975.05.01）</a></li>
+            </ol>
+        </div>
+
+        <div class="prose">
+            <h3 id="kimura">巻頭言　会長 木村秀政</h3>
+            <p>　この度、笹森初代会長が突然ご逝去になったため、私が会長をお引受けすることになった。新しく発足したばかりの本会にとっては、資金を集めて経済的な基礎を確立することが何よりの急務で、われわれ一同、有能な笹森先生のご手腕に期待していたのである。したがってその後を継ぐ以上、一日も早く本会を一人前の団体に育て上げ、世間の期待に応えなければならないと思っている。</p>
+            <p>　最近わが国にはちょっとしたブイヤント航空ブームが起りはじめている。熱気球を製作してその飛行を楽しんでいる団体が九つもでき、連盟を結成して真剣に研究に取組んでいる。オリエント飛行船会社の所有するWDL1型飛行船が各地で活躍をはじめ、日本は世界で数少ない飛行船保有国の一つになった。新聞・雑誌・テレビなどにも、しばしば飛行船が登場する。これは気球や飛行船のもつのんびりしたもの静かなムードが、常に追いまくられるような生活をし、騒音公害に悩まされている現代人の心に安らぎを与えるためであろう。</p>
+            <p>　このように、ムードはもうできているのだから、今後われわれのなすべきことは、気球や飛行船の未だ知られていない用途や効用を開拓し、それを世人に実証してみせることであると思っている。会員諸兄のご協力を祈ってやまない。</p>
+            <p class="source">ブイヤント航空 創刊号（1974.06.01）巻頭言より</p>
+
+            <h3 id="nishibori-1">ブイヤント航空懇談会結成発足の意義　副会長 西堀栄三郎</h3>
+            <p>　或はスポーツとして、或は学術研究への利用上、又将来は産業的利用の面でガス浮力を利用する気球文化の向上育成を計ることの他に、更に期待される分野としての飛行船再開発の問題をとりあげて、私共は旧臘立ち上ったのであります。その理由は、今日利用されているジェット機を中心とした航空輸送方式がある意味で行詰りを来し、それを打開する為の新しい航空輸送方法の開発が望まれている事実が裏付となって、こゝ数年来、米、ソ、独、英等において、飛行船再開発に関する動きが活潑になってきているからです。</p>
+            <p>　わが国では航空機の開発について戦後暫く空白があったためと、戦前においても飛行船実用の機運を欠いていたために、一般に飛行船再開発についての認識が殆どありませんでした。然しよく考えてみると、今日のジェット機の不都合さについては、米ソ独等の大陸国に比べて、島国である英国や日本の方が遙に強く痛感していると云えます。更にこの二国について比較すると、英国は人口が日本の半分、陸地面積は日本と似たような広さであるとしても、日本程山岳地勢ではないにも拘はらず、既に3年前に飛行船協会を発足させています。最近の新聞報道の、SSTについてフランスとの手を切る動きがあるということの裏には、SSTを諦めて、飛行船再開発に全力傾注することを考えているのではないかとすら臆測するものであります。その意味では高い経済成長度をもつ日本こそ世界で一番強くジェット機に代る新しい航空輸送方式の開発出現に期待をかけてしかるべき国だと云えるのではないでせうか。</p>
+            <p>　諸外国における飛行船の研究家達は、飛行船に関する限り未だ曾て「これはOut！である」という結論は出ていないのだと云い、又軽いガスと空気との比重差によってペイロードが発揮される関係上、飛行機のコンパクトさに比べて、飛行船は確にジャイアントな図体になるけれども、曾て吾々の祖先がその出現に目を瞠ったような姿を吾々の頭上に再び現わす日も遠くはないと云っております。</p>
+            <p>　飛行船の特性を生かすことによって、飛行機やヘリコプターが持っている欠点を克服できて、又反面、曾ての硬式飛行船が繋留されるときの姿勢が呈する膨大な地積の占有性と、その時の荷役手続の複雑性等を取り除く方法を技術的に解決することによって、所謂、飛行船やヘリコプターのよい特性をとり入れた様なものが工夫開発されることこそが、吾々が目標とする飛行船再開発という意味であろうかと解するものであります。</p>
+            <p>　曾てリンドバーグが命を賭けて大西洋横断に成功した2年後の1929年、ツェペリン伯号が世界一周をした頃のことを思えば、飛行船こそは大陸間無着陸旅客輸送機の嚆矢としてデビューしたわけでありますが、その後棚上げされていた約40年弱の間に世界の科学技術は月に人間を送り込める迄に進歩しました。今後再開発されるべき硬式飛行船の骨格材料の面、或は外皮材料、ガス嚢の材料、動力エンジンとその燃料、操縦コントロールシステム、浮力ガス、着陸荷役の方法等、これ迄に人類が獲得した科学技術の粋を旨く組み込むことによって、凡そ40年前の所謂飛行船とは異った、然も快適な方式が開発されるに違いありません。</p>
+            <p>　それは飛行機でもなく飛行船でもなく或はヘリコプターでもない、おそらく新しい呼称を以って呼ばれるべき姿のものでしょう。然も如何なる方式のものが、吾々の開発目標とされるべきかの結論が出されたならば、今日の吾国の科学技術産業の態勢からみて、一応の完成実用段階迄にはそれ程の長期間を要しますまい。私はその必需性が最も強い日本こそ、飛行船製造産業に関しては或意味では最適の条件を備えており、遠からず世界に冠たる飛行船製造産業が育成されるかも知れないとの夢を抱くものです。</p>
+            <p>　私共は以上に述べたような意味での飛行船再開発という国家的プロジェクトの先頭に立って色々な分野において関連を持っておられる専門家達の高度の力を結集して一日も早いプロジェクトの完遂へ向って前進できるために微力を致すことを期している次第であります。</p>
+            <p>　昨年、日本人として三人目のノーベル物理学賞を受賞され、この春一時帰国されていた江崎玲於奈氏が自らの体験を通して、わが国の科学技術政策の貧困というか創造的萌芽を育てる環境が貧弱であると云われていた言葉が私共の耳に痛く感じたことを忘れないでいたゞき度い。飛行船再開発についても何時の日か後世の史家が「わが国にも外国に劣らない発想があったのだけれども、その新芽を育てるための施肥管理に時機を欠き、且つ又与えるべき肥料そのものが不充分であったために結局今日のように外国の後塵を拝するに至っているのだ」と云って心ある国民をくやしがらせるような破目に陥らないですむように、どうか学界、官界、財界をはじめ、政界、産業界の方々が、この問題についての認識を新にしていたゞいて、一層の御声援と御協力を賜らんことを願う次第であります。（日本生産性本部理事）</p>
+            <p class="source">ブイヤント航空 創刊号（1974.06.01発行）より</p>
+
+            <h3 id="nishibori-2">巻頭言　副会長 西堀栄三郎</h3>
+            <p>　たとえ、宣伝用にせよ、今日飛行船を利用している国は、日本とアメリカとドイツだけである。また、たとえ、軟式飛行船にせよ、製造しているのはアメリカとドイツだけである。しかしながら、設計段階を終えて開発にとりかかろうとしている国には、ソ連やイギリスやフランスがある。</p>
+            <p>　宣伝時代であるから、飛行船の図体の大きいことを利用して宣伝に使うことは、私企業としても成立っているようである。</p>
+            <p>　ところが、飛行船の利用は、全く多岐に亘っているので、政府用としても色々の利用方法がある。</p>
+            <p>　例えば、総理府関係では、警察庁の交通整理、犯罪車追跡用、防衛庁の哨戒用、科学技術庁の使用済核燃料運搬用、環境庁の公害観測調査報道用、国土庁の国土調査、離島連絡用、大蔵省では税関監視用、文部省では学術調査研究用、厚生省では空の病院船用、農林省では播種、薬剤散布用、林野庁の伐木運搬用、水産庁の魚群探知用、通産省では送電線監視用、地質調査所の地下資源探査用、運輸省では港湾荷役用、観光遊覧用、気象庁の観測用、海上保安庁の海難救助用、郵政省では郵便配達用、電波中継用、建設省では長大な建設資材運搬用、国土地理院の測量用、自治省では消防庁の消火救難用など数えあげればきりがない。総理府に飛行船総合利用調整事務局を設けてもよいくらいである。</p>
+            <p class="source">ブイヤント航空 Vol.1 No.2（1974.09.01発行）巻頭言より</p>
+
+            <h3 id="kondo-sekizo">巻頭言　事務局長 近藤石象</h3>
+            <p>　高速自動車道路や国鉄新幹線を国内縦横に張りめぐらすにしても、対住民の環境公害問題にしばられ、なかなか今までのような安易な費用では国民の福祉を購えなくなってきた。又飛行場を新たに設けるにしても、表日本では高い建設費を承知で海上に設ける以外に名案がないまでになっている狭いわが国土では、結局これ以上の新しい便利な施策については国民の平和な生活圏・産業圏とのバランス点をどこに求めるかということが、世界一人口過密で然かも利用可能面積の乏しい日本では大きな問題であり、かるが故にこそ、その窮状を脱するための方法の一つとしてわれわれは、ガス浮力を利用する航空方式を洗い直す必要がある段階にきている。われわれが飛行船再開発の必要を叫ぶのは決して過去へのノスタルジヤにひたるためではない。</p>
+            <p>　海外に進められているような将来大基地を必要とするような飛行船利用が果して日本にも適用できるかどうか。若しわれわれの努力にもかゝわらず、膨大な基地を必要とするような姿のものしか開発されないとするならば、今日われわれが飛行船再開発と取組まんとしていること自体既にドンキホーテであると私は思ふ。</p>
+            <p>　日本で再開発されるものは、米、ソ、独等の大陸国に比べて、狭い国土でも利用できるものであるということが開発のポイントでなければならない。又勿論公害を伴なわないものでなくてはならないという意味では、日本こそ将来最もシビアな飛行船再開発条件を強いられる国であり、「必要は発明の母」という言葉からみても、世界中で日本にこそその様な新しい飛行船再開発の素地が潜在すると確信するものである。</p>
+            <p>　然しながら、そのような見地から、ガス浮力についての初等物理法則に想を馳せた場合われわれの開発の対象になる飛行船は物凄く嵩ばったものになるという大きなデッド・ロックにぶち当ることを否定できない。そして、われわれは今そのデッド・ロックにぶつかっていることを自覚する故に、むしろ私は武者振いをすら覚ゆる者であり、将来への明るい希望がもてるような気持になって一人でほくそ笑んでいるのである。自分の体験で恐縮だが、それはかつて、今から31年前に或る開発プロジェクトと取り組んでいた時、敢えて提しなくともよい可能性について、希望をつないだばかりに、一時はそのように自分から提案したことを後悔するようなデッド・ロックに突きあたり、眠れない幾夜かを過したことがあった。然し、そのために打った色々な対策の一つが奏効して、みごとにその時の難関を切り抜け得た経験を想い起すからである。「石の上にも三年」とか、「求めよ！さらば与えられん、叩けよ開かれん！」とかと云ふ古来の格言（？）は私の場合決して死んではいなかった。そんな巨大な飛行船が日本で役立つ筈はないという反論に対し、私にとって、これを打開できる道があるとすれば、それは「発想の転換」という道が残されているというなぐさめである。われわれには創意工夫という無限の武器があるではないか。</p>
+            <p>　日本の空を Revised Airship でひらこうという小志は必ず実現できるものと確信する。</p>
+            <p class="source">ブイヤント航空 Vol.1 No.3（1974.12.01発行）巻頭言より</p>
+
+            <h3 id="kondo-toshikiyo">巻頭言　監事 近藤俊清</h3>
+            <p>　Slowly but Steady ―― 焦立たしくて、まるで息がつまるような現代の文明社会にあって、私はいまほどこの言葉のもつ哲理というか、その重みをズシリと感じないではいられない。Slowly but Steady に、欲を言えばもう一つ Magnanimously という言葉をつけ加えてみるのはいかがなものか。Magnanimously は気宇宏大なという意味をもたせたのである。</p>
+            <p>　永遠なる宇宙、悠久たるかな人類の行く手……そんなに慌てることもないではないか、時間はあるよ、ゆっくり腰を落つけようではないか……などと、ついほざきたくなるのは、私だけではないであろう。</p>
+            <p>　そこで飛行船の登場 ―― ではいささかロジカルには唐突めいているが、Slowly but Steady and Magnanimously を念じる私には、飛行船こそまさに神の啓示のような歓こびと期待を感じさせてくれるのである。</p>
+            <p>　飛行船の研究開発ということになると、科学技術に弱い私などの出る幕ではないのだが、しかし外野席からでも大いに声を挙げて応援しなければと思っている。</p>
+            <p>　私などからみても、その研究開発のテーマは多くの領域にまたがっていることが判る。大学の研究室から、また企業の現場からも、国をあげて取り組まなければ、世界の主要国との間に開いた立ち遅れをとり返せるものではあるまい。</p>
+            <p>　米国では、飛行船もさることながら、1970年代後半から新規宇宙飛行計画に着手するそうである。この計画は、12年間にわたり研究、開発、運行、ペイロードなどを研究対象とし、予算も500億ドルを投入するといわれる。そして1980年には、宇宙貨物輸送事業を実現するところの米宇宙輸送システムまたはスペースシャトルと呼ばれる輸送システムまで具体化するということだが、なんと Magnanimously で羨やましいことではないか。</p>
+            <p>　技術日本 ―― その気になればやれるだけの力を持っているはずである。要はその腰だめであろう。西欧と比べて、とかくアジア人は物事に対する好奇心が薄いことが指摘され、夢のある雄大な仕事ができないなどといわれがちである。しかし、哲学的には西欧よりはるかに抜きん出て気宇壮大であるべきアジア人、その代表的とされる日本人が飛行船の開発で大いに気を吐きたいものである。そして科学技術を人類の、アジア人の従僕にする心構えを一そう固めたいものである。</p>
+            <p>（科学技術振興センター(株)社長）</p>
+            <p class="source">ブイヤント航空 Vol.2 No.1（1975.05.01発行）巻頭言より</p>
+        </div>
+        <p class="back-link"><a href="articles.html">← 記事一覧へ戻る</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

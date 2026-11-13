@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -231,45 +277,93 @@
     <!-- ▼ 本会について（入会を検討している方向けの導入文） ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">入会のご案内</h2>
-        <p class="lead">（ここに入会を呼びかける導入文を入力してください。例：飛行船・気球に関心のある方であれば、どなたでも入会いただけます。）</p>
+        <p class="lead">　ブイヤント航空懇談会には、飛行船や気球に関する研究者や技術者のみならず、運航者、実務家、操縦士、整備士、歴史家、学芸家、学生、写真家、さらにはグッズコレクターや熱心なファンまで、さまざまな方が集まっています。本会の設立趣旨に賛同くださる方の入会をお待ちしています。</p>
+        <p class="lead">　会則では、次のいずれかに該当する方を会員としています（会則第6条）。</p>
+        <ul class="lead">
+            <li>ブイヤント航空またはそれに関連のある科学技術の研究にたずさわっている方</li>
+            <li>ブイヤント航空に関する調査、統計、文献収集などにたずさわっている方</li>
+            <li>ブイヤント航空またはそれに関連のある事業にたずさわっている方</li>
+            <li>その他、上記に準ずる方</li>
+        </ul>
     </section>
 
     <!-- ▼ 会員種別・年会費（行は必要に応じて追加・削除） ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">会員種別と年会費</h2>
+        <!-- 要確認：会則の会費規定（2013年9月改訂）では個人会員 10,000円、入会申込書では正会員 5,000円となっています。ここでは入会申込書の金額を記載しています。 -->
         <table class="info-table">
             <thead>
                 <tr><th>会員種別</th><th>年会費</th><th>備考</th></tr>
             </thead>
             <tbody>
-                <tr><td>正会員</td><td>（金額）円</td><td>（備考）</td></tr>
-                <tr><td>学生会員</td><td>（金額）円</td><td>（備考）</td></tr>
-                <tr><td>賛助会員</td><td>（金額）円</td><td>（備考）</td></tr>
+                <tr><td>正会員</td><td>5,000円／1口</td><td>個人で入会される方</td></tr>
+                <tr><td>学生会員</td><td>1,000円／1口</td><td>在学中の方</td></tr>
+                <tr><td>賛助団体会員</td><td>50,000円／1口</td><td>企業・団体の方。会誌へのB5一面広告掲載などの特典があります</td></tr>
+                <tr><td>特別会員</td><td>幹事会で決定</td><td>会長の諮問に応ずることのできる方（幹事会の推薦による）</td></tr>
+                <tr><td>名誉会員</td><td>免除</td><td>過去に本会の発展に大きく寄与された方（幹事会の推薦による）</td></tr>
             </tbody>
         </table>
+        <p class="lead" style="margin-top:1rem;">※ 会計年度は毎年4月1日から翌年3月31日までです。講演会・例会などの会合では、別途、出席者から会合実費をいただきます。<br>※ 会則・会費規定の全文は <a href="rules.html">会則・会費規定</a> をご覧ください。</p>
     </section>
 
     <!-- ▼ 会員特典 ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">会員特典</h2>
         <ul class="lead">
-            <li>（特典1：例 会誌の送付）</li>
-            <li>（特典2：例 講演会・見学会への参加）</li>
-            <li>（特典3）</li>
+            <li>年刊機関誌「ブイヤント航空」の配布、および会誌への投稿</li>
+            <li>ブイヤント航空講演会・例会など、本会が催す学術的会合への参加</li>
+            <li>事務局所蔵資料の閲覧。資料のコピーは実費負担で承ります（事務局に複写を依頼される場合は1枚35円＋送料。複写ミスの枚数も含みます）</li>
+            <li>賛助団体会員は、会誌へのB5サイズ一面広告の掲載、情報収集などの特典があります</li>
         </ul>
+        <p class="lead note-inline">※ 非会員の方の資料閲覧・複写には対応しておりません。</p>
+    </section>
+
+    <!-- ▼ 賛助団体会員の募集 ▼ -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-heading">賛助団体会員の募集</h2>
+            <p class="lead">　LTAに関する情報を25年以上も継続して後世に伝えている団体は、日本国内においては本会が唯一です。LTAに関する研究も実施してまいりました。これらLTAの技術や歴史を蓄積し、後世へ伝承することに賛同くださる賛助団体会員を募集します（企業や団体の身分で参加される方を含みます）。</p>
+            <p class="lead">　賛助団体会員の会費は年間1口5万円です。B5サイズ一面広告掲載や情報収集などの特典があります。会員の方からのご紹介もお願いいたします。</p>
+        </div>
     </section>
 
     <!-- ▼ 入会の流れ（ステップは必要に応じて追加・削除） ▼ -->
-    <section class="container page-section">
+    <section class="container page-section" style="padding-top:5rem;">
         <h2 class="section-heading">入会の流れ</h2>
         <ol class="step-list">
-            <li><h3>お申し込み</h3><p>（申込方法を入力）</p></li>
-            <li><h3>年会費のお支払い</h3><p>（支払方法を入力）</p></li>
-            <li><h3>入会手続き完了</h3><p>（完了後の案内を入力）</p></li>
+            <li><h3>お申し込み</h3><p>入会申込書に必要事項をご記入のうえ、事務局へお送りください。申込書の入手方法は <a href="contact.html">お問い合わせ</a> からご連絡ください。</p></li>
+            <li><h3>年会費のお支払い</h3><p>下記の振込先へ年会費をお振り込みください。</p></li>
+            <li><h3>入会手続き完了</h3><p>幹事会で入会が承認されると手続き完了です。以後、会誌などをお届けします。</p></li>
         </ol>
-        <p class="center" style="margin-top:2rem;">
+
+        <h3 class="lead" style="color:var(--main-dark); margin-top:2.5rem;">入会申込書の主な記入事項</h3>
+        <ul class="lead">
+            <li>会員資格（賛助団体／個人／学生）</li>
+            <li>氏名（フリガナ）・性別・生年月日</li>
+            <li>自宅住所・連絡先（電話・FAX・E-mail）</li>
+            <li>勤務先（学生の方は在籍校）の名称・所属・所在地・連絡先</li>
+            <li>会誌等の送付先（自宅／勤務先／その他）</li>
+            <li>学歴（在学中の方は学年・卒業予定年月）</li>
+            <li>専門分野（飛行船・気球・LTA・航空宇宙など。詳細分野は複数回答可）</li>
+            <li>紹介者（いる場合）</li>
+        </ul>
+
+        <h3 class="lead" style="color:var(--main-dark); margin-top:2rem;">会費振込先</h3>
+        <table class="info-table kv">
+            <tr><th>金融機関</th><td>三井住友銀行 浜松町支店（679）</td></tr>
+            <tr><th>口座</th><td>普通 6484793</td></tr>
+        </table>
+
+        <p class="center" style="margin-top:2.5rem;">
             <a href="contact.html" class="btn">入会のお申し込み・お問い合わせ</a>
         </p>
+    </section>
+
+    <!-- ▼ 運営協力・資料寄贈のお願い ▼ -->
+    <section class="container page-section">
+        <h2 class="section-heading">運営へのご協力・資料寄贈のお願い</h2>
+        <p class="lead">　当会はコロナ禍以降、積極的な活動を中断していましたが、順次再開しています。会員で会の運営に興味のある方を探しています。講演会や例会の運営、会誌や講演集の記事集めや編集者のサポート、ホームページ作成のサポート、論文の査読（博士の方）、財務のサポートなど、お手伝いいただける方はぜひご連絡ください。</p>
+        <p class="lead">　また、飛行船に関する固有のオリジナルな資料や史料、部品などがございましたら、どうか捨てずに当会へご寄贈ください。未来に飛行船や気球の知見を伝えることが、当会の最も重要な役割です。</p>
     </section>
 
 </main>

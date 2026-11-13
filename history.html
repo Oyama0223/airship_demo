@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブイヤント航空懇談会 | 学会紹介</title>
-    <meta name="description" content="ブイヤント航空懇談会の概要・沿革・役員をご紹介します。">
+    <meta name="description" content="ブイヤント航空懇談会の概要・幹事会からのごあいさつ・沿革・役員をご紹介します。">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -232,31 +278,106 @@
     <section class="container page-section">
         <h2 class="section-heading">概要</h2>
         <table class="info-table kv">
-            <tr><th>名称</th><td>ブイヤント航空懇談会</td></tr>
-            <tr><th>設立</th><td>1973年</td></tr>
-            <tr><th>目的</th><td>（目的を入力）</td></tr>
-            <tr><th>事務局</th><td>（所在地を入力）</td></tr>
-            <tr><th>会員数</th><td>（人数を入力）</td></tr>
+            <tr><th>名称</th><td>ブイヤント航空懇談会<br>（JBFA：Japan Buoyant Flight Association）</td></tr>
+            <tr><th>設立</th><td>1973年（昭和48年）12月13日<br>東京・一ツ橋の学士会館にて結成</td></tr>
+            <tr><th>目的</th><td>ブイヤント航空ならびに関連分野の学理と技術及び応用に関する知識の交換をはかるとともに、これらの重要性について一般の認識を深めること（会則第2条）</td></tr>
+            <tr><th>会長</th><td>小野田淳次郎（JAXA名誉教授、第15代 JAXA宇宙科学研究所長）</td></tr>
+            <tr><th>主な活動</th><td>ブイヤント航空講演会（年1回）・例会（年2回）の開催<br>年刊機関誌「ブイヤント航空」の発行</td></tr>
+            <tr><th>機関誌</th><td>「ブイヤント航空」ISSN 1344-0527（1974年6月創刊）</td></tr>
+            <tr><th>事務局</th><td>〒116-0003 東京都荒川区南千住8-17-1<br>東京都立産業技術高等専門学校 航空宇宙工学コース 草谷研究室内（仮事務所）</td></tr>
         </table>
+        <p class="lead" style="margin-top:1rem;">会則の全文は <a href="rules.html">会則・会費規定</a> をご覧ください。</p>
+    </section>
+
+    <!-- ▼ 幹事会からのごあいさつ ▼ -->
+    <section class="bg-light" id="message">
+        <div class="container">
+            <h2 class="section-heading">ブイヤント航空懇談会を知る</h2>
+            <div class="prose">
+                <h3>飛行船</h3>
+                <p>　飛行船は、世界の航空史の黎明期、ライト兄弟による動力飛行の成功から暫くの間までは、各種機関や電気モータやジュラルミンの技術実用化、そして、大重量輸送、郵便輸送、旅客輸送、長距離輸送、高高度飛行の利用実用化に、先駆的な役割を果たしてきました。新技術は、まず気球、そして飛行船で試されてきました。2000年以降現在までは、世界的に、超大型ロジスティックやHAPSなどに傾倒した利用熱が続いています。</p>
+
+                <h3>日本では</h3>
+                <p>　明治から大正時代までの日本において、航空機は軍事一辺倒の技術で、飛行船はその中でも先端の軍事技術でした。昭和初期には、馬背のような地形の日本では、軟式や半硬式といった小型飛行船では軍用に耐えず、もっと大型でなければならないと結論付けられ、海軍では、ドイツの硬式飛行船を模倣した大型飛行船の開発に乗り出します。ところがその矢先、当時の日本は牛や羊の消費量が少ないことから大型の飛行船は作れないことが、海軍研究所の調査で判明します。飛行船の価値を知ることなく、日本は飛行船開発を「中断」します。海軍の研究所での飛行船表皮の研究が細々と続く横で、人々の目はジャイロコプタや飛行機へ移り、飛行船を民生へ転用する機会すら得ることはありませんでした。それ以降、飛行船や気球はメルヘンの世界に閉じ込められてしまいました。</p>
+
+                <h3>近代に入り</h3>
+                <p>　1960年代後半、オイルショックを含めた環境公害問題と、欧米で叫ばれた「飛行船ルネサンス」または「飛行船リバイバル」を背景に、「飛行船に最も強い関心を示さなければならないのは日本であり、例え、再開発されるべき新航空輸送機が立体的に巨大であっても、今日のジェット航空機が持っている燃料の大消費性や、それがふりまく各種の公害から逃れるためには止むを得ない文明展開の姿である」との考えが、日本の科学技術振興の中枢で芽生えました。</p>
+
+                <h3>そうして</h3>
+                <p>　ブイヤント航空懇談会は、気球や飛行船といった浮力を活用する軽航空機（LTA：Lighter Than Air Aircraft）の研究を行う団体として、元関東軍気球隊長の近藤石象氏を中心に、北の丸の科学技術館にある全国科学技術団体総連合の中に本部を置き、設立準備が進められました。1971年7月30日に準備委員会の初会合を開き、1973年12月13日、東京一ツ橋の学士会館で発起人24名により設立総会を開き、笹森巽先生（建材試験センター理事長、技術院参技官）を会長代理に据えて「ブイヤント航空懇談会」を結成しました。しかしながら、この時の機運を、産業界は飛行艇へと形を変えていくことになります。このとき飛行船に傾倒していたならば、ここまで人類にとって乱気候の社会にはならなかったかもしれません。</p>
+
+                <h3>それでもLTA</h3>
+                <p>　「ブイヤント航空」は、浮力原理に基づく空の開拓を意味し、初代会長に木村秀政先生（日大名誉教授）を、二代会長に西堀栄三郎先生（第1次南極越冬隊長、理学博士、登山家）を、三代会長に斉藤進六先生（東工大名誉教授、11代学長）を、四代会長に西村純先生（東大名誉教授、9代 JAXA宇宙科学研究所長）を、そして現在は小野田淳次郎先生（JAXA名誉教授、15代 JAXA宇宙科学研究所長）を会長にお迎えしました。</p>
+                <p>　ブイヤント航空懇談会の黎明期には、戦前は陸海軍や政府で飛行船や気球や航空管制の研究者や技術者だった方々が中心に会の礎を築き、その知見は、現代のLTA研究者や技術者のみならず、民間事業萌芽、整備体系構築、ドローン事業開拓を行う方々へと引き継がれていきました。このような過程で、会員は全国の飛行船や気球に関する研究者や技術者のみならず、運航者、実務家、操縦士、整備士、歴史家、学芸家、学生、写真家、更には、おっかけ、グッズコレクター、オタクまでが集まり、この方々が、日本で行われてきた飛行船や気球にまつわる大きなプロジェクトに、何らかの形で介在してきました。</p>
+                <p>　現在最もホットな話題は、HAPSの開発とその利用についてです。日本の飛行船開発は2000年のミレニアムプロジェクトで止まっていますが、ISASでは大気球の開発が1960年代から脈々と続いており、LTA高度記録を達成しています。日本のLTA技術は世界的にも、いまだトップレベルを維持しています。</p>
+                <p>　当会は、コロナ以降、積極的な活動を中断していましたが、ホームページの新規開設（設立52年目にしてやっと）から順次再開していきます。会員で、会の運営に興味のある方を探しています。講演会や例会の運営、会誌や講演集の記事集めや編修者のサポート、ホームページ作成のサポート、論文の査読（博士の方）、財務のサポート、などなど、きりがありません。御支援くださる方も求めています。飛行船に関する固有のオリジナルな資料や史料や部品など、どうか捨てずに、当会へ寄贈くださいますと幸甚です。未来に飛行船や気球の知見を伝えるのが最も重要な当会の役割です。</p>
+                <p class="signature">2026年8月<br>ブイヤント航空懇談会 幹事会</p>
+            </div>
+        </div>
     </section>
 
     <!-- ▼ 沿革（timeline-item を年ごとに追加） ▼ -->
-    <section class="container page-section">
+    <section class="container page-section" style="padding-top:5rem;">
         <h2 class="section-heading">沿革</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <span class="timeline-year">1973年</span>
-                <p>（出来事を入力）</p>
+                <span class="timeline-year">1969年（昭和44年）4月</span>
+                <p>「日本航空船・気球協会」設立準備会（代表 近藤石象）が設立趣意書を発表</p>
             </div>
             <div class="timeline-item">
-                <span class="timeline-year">（年）</span>
-                <p>（出来事を入力）</p>
+                <span class="timeline-year">1971年（昭和46年）7月30日</span>
+                <p>「航空船気球協会」（仮称）の設立準備打合せ会を開催</p>
             </div>
             <div class="timeline-item">
-                <span class="timeline-year">（年）</span>
-                <p>（出来事を入力）</p>
+                <span class="timeline-year">1973年（昭和48年）12月13日</span>
+                <p>東京・一ツ橋の学士会館に発起人24名中17名が集い「ブイヤント航空懇談会」を結成。笹森巽が会長代理に就任</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1974年（昭和49年）1月16日</span>
+                <p>第1回委員会を開催し、企画・研究調査・編集・財務の4委員会と委員を決定</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1974年5月1日</span>
+                <p>笹森会長代理の逝去に伴い、木村秀政が初代会長に就任</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1974年6月</span>
+                <p>機関誌「ブイヤント航空」創刊号を発行（6月1日）。朝日新聞社講堂で発足を記念した「講演と映画の会」を開催（6月14日）</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1976年（昭和51年）11月</span>
+                <p>『とべ！飛行船』（木村秀政監修、山と渓谷社）を制作・刊行</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1987年（昭和62年）</span>
+                <p>西堀栄三郎が第2代会長に就任。会則を改正。『双胴型LTA「ヘリ・シップ」の提案及びその性能計算法』を刊行</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1988年（昭和63年）</span>
+                <p>斉藤進六が第3代会長に就任（西堀栄三郎は名誉会長に）。翻訳書『飛行船の設計』を刊行</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">1994年（平成6年）</span>
+                <p>西村純が第4代会長に就任</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2013年（平成25年）9月</span>
+                <p>会則・会費規定を改正し、仮事務所を都立産業技術高専 草谷研究室内に移転。川島孝幸が副会長、草谷大郎が代表幹事に就任</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2017年（平成29年）7月17日</span>
+                <p>第4回ブイヤント航空講演会を開催</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2018年（平成30年）7月16日</span>
+                <p>第5回ブイヤント航空講演会を開催</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2026年（令和8年）</span>
+                <p>ホームページを開設し、コロナ禍以降中断していた活動を順次再開</p>
             </div>
         </div>
+        <p class="lead" style="margin-top:2rem;">設立の経緯や黎明期の記録は <a href="founding.html">設立と黎明期の記録</a> をご覧ください。</p>
     </section>
 
     <!-- ▼ 役員（行は必要に応じて追加・削除） ▼ -->
@@ -267,11 +388,59 @@
                 <tr><th>役職</th><th>氏名</th><th>所属</th></tr>
             </thead>
             <tbody>
-                <tr><td>会長</td><td>（氏名）</td><td>（所属）</td></tr>
-                <tr><td>副会長</td><td>（氏名）</td><td>（所属）</td></tr>
-                <tr><td>幹事</td><td>（氏名）</td><td>（所属）</td></tr>
+                <tr><td>会長</td><td>小野田淳次郎</td><td>JAXA名誉教授</td></tr>
+                <tr><td>副会長</td><td>川島孝幸</td><td>日本大学 理工学部 航空宇宙工学科</td></tr>
+                <tr><td>代表幹事</td><td>草谷大郎</td><td>東京都立産業技術高等専門学校</td></tr>
             </tbody>
         </table>
+    </section>
+
+    <!-- ▼ 歴代会長 ▼ -->
+    <section class="container page-section">
+        <h2 class="section-heading">歴代会長</h2>
+        <div class="table-wrap">
+        <table class="info-table">
+            <thead>
+                <tr><th>代</th><th>氏名</th><th>在任</th><th>主な経歴</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>会長代理</td><td>笹森 巽</td><td>1973〜1974</td><td>建材試験センター理事長、技術院参技官</td></tr>
+                <tr><td>初代</td><td>木村秀政</td><td>1974〜1986</td><td>日本大学名誉教授</td></tr>
+                <tr><td>第2代</td><td>西堀栄三郎</td><td>1987<br><span class="note-inline">（名誉会長 1988〜1989）</span></td><td>第1次南極越冬隊長、理学博士、登山家</td></tr>
+                <tr><td>第3代</td><td>斉藤進六</td><td>1988〜1993</td><td>東京工業大学名誉教授、第11代学長</td></tr>
+                <tr><td>第4代</td><td>西村 純</td><td>1994〜2020</td><td>東京大学名誉教授、第9代 JAXA宇宙科学研究所長</td></tr>
+                <tr><td>第5代</td><td>小野田淳次郎</td><td>現在</td><td>JAXA名誉教授、第15代 JAXA宇宙科学研究所長</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+    <!-- ▼ 歴代の副会長・代表幹事・事務局長など ▼ -->
+    <section class="container page-section">
+        <h2 class="section-heading">歴代の副会長・代表幹事・事務局長</h2>
+        <div class="table-wrap">
+        <table class="info-table">
+            <thead>
+                <tr><th>役職</th><th>氏名</th><th>在任</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>副会長</td><td>木村秀政、西堀栄三郎</td><td>1973</td></tr>
+                <tr><td>副会長</td><td>西堀栄三郎</td><td>1974〜1986</td></tr>
+                <tr><td>副会長</td><td>田中 進</td><td>1987〜1990</td></tr>
+                <tr><td>副会長</td><td>東 昭、斉藤進六</td><td>1987</td></tr>
+                <tr><td>副会長</td><td>松尾芳郎</td><td>1988</td></tr>
+                <tr><td>副会長</td><td>本郷公基</td><td>1989</td></tr>
+                <tr><td>副会長</td><td>斉藤貴顕</td><td>1990〜1991</td></tr>
+                <tr><td>副会長</td><td>竹田平八</td><td>1991</td></tr>
+                <tr><td>副会長</td><td>川島孝幸</td><td>2013〜現在</td></tr>
+                <tr><td>代表幹事</td><td>草谷大郎</td><td>2013〜現在</td></tr>
+                <tr><td>会誌編集長</td><td>郡 捷</td><td>1973〜</td></tr>
+                <tr><td>事務局長</td><td>近藤石象</td><td>1971〜1975</td></tr>
+                <tr><td>事務局長</td><td>飯沼和正</td><td>1976〜1991</td></tr>
+                <tr><td>事務局長</td><td>市吉三郎</td><td>1992〜2012</td></tr>
+            </tbody>
+        </table>
+        </div>
     </section>
 
 </main>

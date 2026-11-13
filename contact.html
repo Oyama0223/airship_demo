@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブイヤント航空懇談会 | お問い合わせ</title>
-    <meta name="description" content="ブイヤント航空懇談会へのお問い合わせ先のご案内です。">
+    <meta name="description" content="ブイヤント航空懇談会へのお問い合わせ先と事務局へのアクセスのご案内です。">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -198,6 +198,52 @@
             .news-date { font-size: 0.85rem; }
             .news-link-card h3 { font-size: 1.1rem; }
         }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -231,21 +277,46 @@
     <!-- ▼ 導入文 ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">お問い合わせ</h2>
-        <p class="lead">（入会・イベント・取材などに関するお問い合わせの案内文を入力してください。）</p>
+        <p class="lead">　入会のお申し込み、講演会・例会、会誌「ブイヤント航空」への投稿や広告掲載、刊行物の頒布、資料の閲覧・寄贈、取材などに関するお問い合わせは、下記の事務局までご連絡ください。</p>
     </section>
 
     <!-- ▼ 連絡先 ▼ -->
     <section class="container page-section">
         <h2 class="section-heading">連絡先</h2>
         <table class="info-table kv">
-            <tr><th>事務局</th><td>東京都立産業技術高専　草谷研究室内</td></tr>
-            <tr><th>所在地</th><td>116-0003　東京都荒川区南千住8-17-1</td></tr>
-            <tr><th>メール</th><td>contact(at)airship.jp</a></td></tr>
+            <tr><th>事務局</th><td>東京都立産業技術高等専門学校 航空宇宙工学コース 草谷研究室内</td></tr>
+            <tr><th>所在地</th><td>〒116-0003　東京都荒川区南千住8-17-1</td></tr>
+            <tr><th>電話</th><td>03-3801-0146（内線535）</td></tr>
+            <tr><th>メール</th><td>contact(at)airship.jp</td></tr>
             <tr><th>受付時間</th><td>平日 10:00〜17:00</td></tr>
         </table>
-        <p class="lead">お問い合わせの際は(at)を@に置き換えて送信ください。</p>
+        <p class="lead" style="margin-top:1rem;">お問い合わせの際は(at)を@に置き換えて送信ください。</p>
         <!-- Googleフォーム等を使う場合は、下の行の href をフォームのURLに変えて使ってください -->
         <!-- <p class="center" style="margin-top:2rem;"><a href="https://forms.gle/xxxx" class="btn" target="_blank" rel="noopener">お問い合わせフォーム</a></p> -->
+    </section>
+
+    <!-- ▼ アクセス ▼ -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-heading">アクセス</h2>
+            <p class="lead">最寄り駅は <strong>南千住駅</strong>（JR常磐線、東京メトロ日比谷線、つくばエクスプレス）です。東京メトロ日比谷線は改札が2カ所あり、JR・TXへの乗り換え口側をご利用ください。</p>
+            <table class="info-table kv">
+                <tr><th>徒歩（約18分）</th><td>南千住駅東口ロータリーから大通り（ドナウ通り）を道なりに突き当りの汐入公園まで進み右折。汐入公園の隣、信号手前に正門があります。</td></tr>
+                <tr><th>バス（約8分）</th><td>南千住駅東口ロータリーの3番バス停から都バス（上46系統）上野松坂屋前行に乗車、「都立産業技術高専荒川キャンパス前」下車すぐ正門。約10〜15分間隔で運行しています（上野駅前から約30分）。</td></tr>
+                <tr><th>タクシー（約6分）</th><td>約1,000円。西口ロータリーのほうがタクシーが多く、料金は同じです。「航空高専（旧名称）まで」もしくは「高専まで」と伝えるとスムーズです。</td></tr>
+            </table>
+            <figure class="map">
+                <img src="images/access-station.jpg" alt="南千住駅の改札・ロータリー・バス停の配置図">
+                <figcaption>南千住駅の改札とバス停（東口ロータリー：上野松坂屋行）の配置</figcaption>
+            </figure>
+            <figure class="map">
+                <img src="images/access-route.jpg" alt="南千住駅から汐入公園方面を経て高専正門までの徒歩ルート">
+                <figcaption>南千住駅 東口ロータリーから徒歩約18分のコース</figcaption>
+            </figure>
+            <p class="center" style="margin-top:2rem;">
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E7%AB%8B%E7%94%A3%E6%A5%AD%E6%8A%80%E8%A1%93%E9%AB%98%E7%AD%89%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1+%E8%8D%92%E5%B7%9D%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9" class="btn" target="_blank" rel="noopener">Googleマップで見る</a>
+            </p>
+        </div>
     </section>
 
 </main>

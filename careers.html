@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブイヤント航空懇談会 | 飛行船の操縦士・整備士・技術者を志向する方へ</title>
+    <meta name="description" content="飛行船の航空従事者（操縦士・整備士）や技術者を志向する方へ、国土交通省の学科試験参考資料と飛行船に特化した問題の概要をご案内します。">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 共通 CSS --- */
+        :root {
+            /* メインカラー（アクセント：線・枠・帯などに使用） */
+            --main-color: #45a5b7;
+            --main-color-alt: #42a6b7;
+            /* 文字用の濃い色（白背景で読みやすいコントラストを確保） */
+            --main-dark: #256f7d;
+            --main-deep: #15363d;
+            /* 背景用の淡い色 */
+            --main-pale: #eef7f9;
+
+            --light-gray: #f4f4f4;
+            --medium-gray: #7a8a8e;
+            --border-gray: #d6e6ea;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 64px; width: auto; max-width: 100%; display: block; transition: opacity 0.3s; }
+        .logo-img:hover { opacity: 0.8; }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            min-height: 60px;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--main-dark); letter-spacing: 0.05em; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: bold; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--main-dark); border-bottom: 2px solid var(--main-color); padding-bottom: 5px;}
+
+        /* コンポーネント */
+        .container { max-width: 1000px; margin: 0 auto; padding: 5rem 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--main-dark); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: var(--main-color); margin: 15px auto; }
+        .content-flex { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .text { flex: 1.2; min-width: 300px; }
+        .image-box { flex: 0.8; min-width: 300px; background: var(--main-pale); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .bg-light { background-color: var(--light-gray); }
+        .bg-dark { background-color: var(--main-dark); color: var(--white); text-align: center; }
+        .bg-dark .section-title { color: var(--white); }
+        .bg-dark .section-title::after { background: var(--white); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); transition: transform 0.3s; border: 1px solid var(--border-gray); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .card h3 { color: var(--main-dark); margin-top: 0; border-bottom: 1px solid var(--main-color); padding-bottom: 10px; display: inline-block; }
+        footer { background: var(--main-deep); color: #c9e6ec; text-align: center; padding: 2.5rem; font-size: 0.8rem; letter-spacing: 0.05em; border-top: 4px solid var(--main-color); }
+
+        /* ヒーローエリア */
+        .hero {
+            /* 文字を読みやすくするための薄い暗幕 + 背景画像（不要なら linear-gradient(...) の部分を削除） */
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('top.png');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; letter-spacing: 0.1em; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+
+        /* サブページ用ミニヒーロー */
+        .sub-hero { background: linear-gradient(135deg, var(--main-dark), var(--main-color)); padding: 4rem 20px; text-align: center; color: var(--white); }
+        .sub-hero h1 { margin: 0; font-size: 2.5rem; letter-spacing: 0.05em; }
+
+        /* ▼ News一覧用のリンクカードスタイル ▼ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-link-card {
+            display: flex;
+            align-items: baseline; /* テキストのベースラインで揃える */
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            border-left: 6px solid var(--main-color); /* border の後に書かないと上書きされる */
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .news-link-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--main-dark);
+            box-shadow: 0 6px 15px rgba(37,111,125,0.15);
+        }
+        .news-date {
+            color: var(--main-dark);
+            font-size: 0.95rem;
+            white-space: nowrap; /* 日付が改行されないようにする */
+        }
+        .news-link-card h3 {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+
+        /* ▼ サブページ共通パーツ ▼ */
+        .sub-hero p { margin: 0.5rem 0 0; opacity: 0.9; }
+        .page-section { padding-bottom: 2rem; }
+        .page-section + .page-section { padding-top: 1rem; }
+        main > .page-section:last-child { padding-bottom: 5rem; }
+        .section-heading { box-sizing: border-box; max-width: 800px; font-size: 1.5rem; color: var(--main-dark); border-left: 6px solid var(--main-color); padding-left: 0.8rem; margin: 0 auto 1.5rem; line-height: 1.4; }
+        .lead { max-width: 800px; margin: 0 auto 2rem; }
+        .placeholder { color: var(--medium-gray); }
+        main .grid { max-width: 800px; margin: 0 auto; }
+
+        /* 表（会費・役員・連絡先など） */
+        .info-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--white); }
+        .info-table th, .info-table td { border: 1px solid var(--border-gray); padding: 0.9rem 1.2rem; text-align: left; vertical-align: top; }
+        .info-table th { background: var(--main-pale); color: var(--main-dark); width: 30%; white-space: nowrap; }
+        .info-table thead th { background: var(--main-color); color: var(--white); width: auto; }
+
+        /* 手順（入会の流れなど） */
+        .step-list { list-style: none; counter-reset: step; max-width: 800px; margin: 0 auto; padding: 0; }
+        .step-list li { counter-increment: step; position: relative; background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 1.2rem 1.5rem 1.2rem 4.5rem; margin-bottom: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--main-color); color: var(--white); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .step-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; color: var(--main-dark); }
+        .step-list p { margin: 0; }
+
+        /* 年表（沿革） */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 3px solid var(--main-color); padding-left: 1.8rem; }
+        .timeline-item { position: relative; margin-bottom: 1.8rem; }
+        .timeline-item::before { content: ''; position: absolute; left: calc(-1.8rem - 8px); top: 0.55rem; width: 13px; height: 13px; border-radius: 50%; background: var(--white); border: 3px solid var(--main-color); }
+        .timeline-year { font-weight: bold; color: var(--main-dark); }
+        .timeline-item p { margin: 0.2rem 0 0; }
+
+        /* ボタン */
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s; }
+        .btn:hover { background: var(--main-color); }
+        .center { text-align: center; }
+
+        @media (max-width: 768px) {
+            .sub-hero { padding: 3rem 20px; }
+            .sub-hero h1 { font-size: 1.9rem; }
+            .container.page-section { padding-bottom: 1.5rem; }
+            .container.page-section + .container.page-section { padding-top: 0.5rem; }
+            main > .container.page-section:last-child { padding-bottom: 3rem; }
+            .info-table th, .info-table td { padding: 0.7rem 0.8rem; }
+            /* 項目名：内容 の2列表はスマホで縦積みにする */
+            .info-table.kv th, .info-table.kv td { display: block; width: auto; }
+            .info-table.kv th { border-bottom: none; }
+        }
+
+        /* ▼ スマホ対応（レスポンシブ） ▼ */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 10px; }
+            nav ul li { margin: 0 10px; }
+            .logo-img { height: 52px; }
+            .hero { height: 50vh; }
+            .container { padding: 3rem 20px; }
+            .section-title { font-size: 1.8rem; }
+            .content-flex { gap: 30px; }
+            /* スマホでは横並びを縦並びに強制 */
+            .text, .image-box { flex: 100%; min-width: 100%; }
+            /* Newsカードはスマホでは日付と見出しを縦並びに */
+            .news-link-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .news-date { font-size: 0.85rem; }
+            .news-link-card h3 { font-size: 1.1rem; }
+        }
+
+        /* ▼ 追加パーツ（記事・資料ページ用） ▼ */
+        a { color: var(--main-dark); }
+        .prose { max-width: 800px; margin: 0 auto; }
+        .prose p { margin: 0 0 1.2em; }
+        .prose h3 { font-size: 1.2rem; color: var(--main-dark); margin: 2.2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border-gray); }
+        .prose h4 { font-size: 1.05rem; color: var(--main-deep); margin: 1.6rem 0 0.5rem; }
+        .prose ol, .prose ul { padding-left: 1.6em; margin: 0 0 1.2em; }
+        .prose li { margin-bottom: 0.3em; }
+        .prose blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background: var(--main-pale); border-left: 4px solid var(--main-color); }
+        .signature { text-align: right; margin-top: 1.5rem; }
+        .source { text-align: right; font-size: 0.9rem; color: var(--medium-gray); }
+        .note { max-width: 800px; margin: 0 auto 1.5rem; padding: 0.8rem 1.2rem; background: var(--light-gray); border-radius: 6px; font-size: 0.9rem; color: #555; }
+        .note-inline { font-size: 0.9rem; color: var(--medium-gray); }
+        .toc { max-width: 800px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; background: var(--main-pale); border-radius: 8px; }
+        .toc p { margin: 0 0 0.5rem; font-weight: bold; color: var(--main-dark); }
+        .toc ol, .toc ul { margin: 0; padding-left: 1.4em; }
+        .back-link { max-width: 800px; margin: 2rem auto 0; }
+        .table-wrap { max-width: 800px; margin: 0 auto; overflow-x: auto; }
+        .table-wrap .info-table { min-width: 560px; }
+        .info-table td.time { white-space: nowrap; color: var(--main-dark); font-weight: bold; }
+        .info-table tr.break td { background: var(--light-gray); color: var(--medium-gray); }
+        .info-table tr.session td { background: var(--main-pale); color: var(--main-dark); font-weight: bold; }
+        .bib-group { max-width: 800px; margin: 0 auto 2rem; }
+        .bib-group h3 { font-size: 1.15rem; color: var(--main-dark); margin: 2rem 0 0.6rem; }
+        .bib-group h4 { font-size: 1rem; color: var(--main-deep); margin: 1.2rem 0 0.4rem; }
+        .bib-list { margin: 0; padding-left: 1.6em; font-size: 0.92rem; line-height: 1.7; }
+        .bib-list li { margin-bottom: 0.35em; }
+        .book { display: flex; gap: 1.5rem; align-items: flex-start; }
+        .book img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; }
+        .book dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.2rem 1rem; font-size: 0.95rem; }
+        .book dt { color: var(--main-dark); font-weight: bold; white-space: nowrap; }
+        .book dd { margin: 0; }
+        main .grid.one { grid-template-columns: 1fr; }
+        figure.map { max-width: 800px; margin: 1.5rem auto; }
+        figure.map img { width: 100%; height: auto; border: 1px solid var(--border-gray); border-radius: 4px; }
+        figure.map figcaption { text-align: center; font-size: 0.9rem; color: var(--medium-gray); margin-top: 0.4rem; }
+        .label { display: inline-block; font-size: 0.8rem; background: var(--main-pale); color: var(--main-dark); border: 1px solid var(--border-gray); border-radius: 999px; padding: 0 0.7rem; margin-right: 0.4rem; white-space: nowrap; }
+        .news-link-card p { margin: 0.2rem 0 0; color: var(--medium-gray); font-size: 0.9rem; }
+        .news-link-card .card-body { display: flex; flex-direction: column; }
+        @media (max-width: 768px) {
+            .book { flex-direction: column; }
+            .book img { width: 120px; }
+            .book dl { grid-template-columns: 1fr; }
+            .book dd { margin-bottom: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="ブイヤント航空懇談会" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="membership.html">入会案内</a></li>
+            <li><a href="history.html">学会紹介</a></li>
+            <li><a href="events.html">イベント</a></li>
+            <li><a href="publications.html">出版物</a></li>
+            <li><a href="articles.html" class="active">記事</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="sub-hero">
+    <h1>飛行船の操縦士・整備士・技術者を志向する方へ</h1>
+    <p>For Future Airship Pilots, Mechanics and Engineers</p>
+</section>
+
+<main>
+
+    <section class="container page-section">
+        <h2 class="section-heading">学科試験の参考資料（国土交通省）</h2>
+        <p class="lead">　飛行船操縦士に関しては、国土交通省航空局が学科試験受験に際し学習の参考として使用するための資料を開示しています。次の(1)〜(3)から国土交通省のサイトのPDFを入手できます。ただし、これだけやれば大丈夫と言うものではありませんし、また、試験の出題範囲を限定するものでもありません。ご注意ください。</p>
+        <ul class="lead">
+            <li>(1) <a href="https://www.mlit.go.jp/koku/content/001761076.pdf" target="_blank" rel="noopener">自家用操縦士（飛行船）</a>（PDF）</li>
+            <li>(2) <a href="https://www.mlit.go.jp/koku/content/001761071.pdf" target="_blank" rel="noopener">事業用操縦士（飛行船）</a>（PDF）</li>
+            <li>(3) <a href="https://www.mlit.go.jp/koku/content/001761068.pdf" target="_blank" rel="noopener">定期運送用操縦士（飛行船）</a>（PDF）</li>
+        </ul>
+        <p class="lead">　整備士や技術者に関する同様の資料は、まだ開示されていません。操縦士も含めて内容のほとんどは、同じ航空機の一種である他の種類の動力機（飛行機や回転翼機）と共通ですから、主に飛行機での問題や解説で対応するのが一般的です。ただし、飛行船に特化した、操縦士・整備士・技術者に共通する固有の問題についてはわかりにくいため、どのような出題がなされるかについて、次の概要のリストをご覧ください。詳細については、団体会員で、かつ受験を予定している方に限定して提供できます。</p>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-heading">(4) 飛行船に特化した問題の概要</h2>
+            <div class="prose">
+                <p class="note-inline">※ 問題文中の「＊」は数値が伏せられている箇所です。</p>
+                <ol>
+                    <li>外気温度とエンベロープ内温度の差をどのように呼ぶか。正しいものを次の中から選べ。</li>
+                    <li>飛行中の飛行船に作用する4つの主な力として適当なものを次の中から選べ。</li>
+                    <li>飛行船の固定重量と飛行船を膨張させているガスの総リフト（揚力）との差を何と呼ぶか。次の中から適切なものを選べ。</li>
+                    <li>飛行中にバランスの崩れているプロペラは次のどれを引き起こすか。適切なものを選べ。</li>
+                    <li>２隻の全く同型の飛行船AとBとが、できるだけ迅速に、かつ同時にテイクオフし、同じ上昇率と同じ対気速度で上昇するものとする。このとき、Aは風上に向かいBは反対に風下へ向かうものとする。＊分後にはどうなるか。次の中から適切なものを選べ。</li>
+                    <li>プレッシャーハイト（圧力高度）以下でポジティブ（正の）スーパーヒート＊.＊℃は、ほぼ次の揚力（浮力）増加に相当する。適切なものを選べ。</li>
+                    <li>ヘリウムおよび空気の圧力条件が同じ時に同一寸度の各バルブが開く場合、ヘリウムバルブの排出量はいくらか、適切なものを選べ。</li>
+                    <li>テイクオフに先立ち完全なスタティックトリム（静的トリム）と平衡とを保っている飛行船は、飛行中のダイナミックトリム（動的トリム）を確定するために次のどれが必要か。</li>
+                    <li>飛行中においてプロペラハブがゆるむと次のどれを引き起こすか。適切なものを選べ。</li>
+                    <li>飛行船操縦者が自由気球として繰船の訓練を必要とするのはなぜか、適切なものを選べ。</li>
+                    <li>飛行中に飛行船構造の各部分が受けるべき4つの応力は何か。組み合わせとして適切なものを選べ。</li>
+                    <li>飛行船の有効搭載量（有効ロード）として適切な表現のものを次の中から選べ。</li>
+                    <li>飛行船が定常飛行の状態から動揺した際、元の状態に復元させようとする力を発生させるような飛行船の特性を何と呼ぶか。適切なものを次の中から選べ。</li>
+                    <li>飛行船の絶対上昇限度として適切なものを次から選べ。</li>
+                    <li>飛行船がプレッシャーハイト（圧力高度）より十分下にあるとき、飛行船の浮揚ガス体積は、次の中のどれになるか。</li>
+                    <li>飛行船を自由気球飛行する際、（容量＊＊＊立方m）平均的気象状態内で、安全なランディングをするには高度＊＊＊m毎にほぼどのくらいのバラストが用意されてなければならないか。適切なものを次の中から選べ。</li>
+                    <li>砂利の多い地面でエンジンを運転するのは望ましくないが、その理由として適切なものを次の中から選べ。</li>
+                    <li>飛行船のアスペクト比について適切なものを次の中から選べ。</li>
+                    <li>飛行船のエンベロープ内のガス（明らかに良い状態で）が、安定しており、ガス室内の純度と充満度が急速に減少したら何を検査するか。次の中から適切なものを選べ。</li>
+                    <li>軟式飛行船が＊時間のクロスカントリー航行をし、日没後に着陸する予定である。ランディングの際ほぼ平衡の状態であるためには、航行開始時の飛行船は次のどの状態でなければならないか、適切なものを選べ。（ただし、巡航速度におけるガソリン消費率は＊＊.＊リットル/hで開始時のポジティブスーパーヒートが＊.＊℃、離陸時の総浮力＊＊＊＊ｋｇである）</li>
+                    <li>無風で飛行船が＊＊＊kgヘビー状態の時に最良のランディングをするには、飛行船の状態は次のどれでなければならないか、適切なものを選べ。</li>
+                    <li>プレッシャーハイト以下で、飛行船のリフトがどう変わるか、適切なものを選べ。</li>
+                    <li>高度が＊＊＊m変化すると大気圧力はほぼ次のどれくらい変化するか。適切なものを選べ。</li>
+                    <li>明らかに良好状態の飛行船がリフト（揚力）及びフルネス（充満度）を失い続け、純度は変化していなかったら次のどれを検査するか、適切なものを選べ。</li>
+                    <li>飛行船のドラッグロープ（船首操作索）は次のうち、どの時に使用されるか、適切なものを選べ。</li>
+                    <li>飛行船の総リフトを想定するにあたり、ヘリウムガスの＊＊立方m毎のだいたいのリフトはいくらか（ガスは純粋でドライ、温度＊℃、大気圧力＊＊＊mm水銀柱と仮定して）、次の中から適切なものを選べ。</li>
+                    <li>ガス体積の＊%増加にともない、次のどの状態になるのが正しいか、適切なものを選べ。</li>
+                    <li>飛行船がガスプレッシャーハイト以上で＊＊＊m上昇すると、次のどの状態になるのが正しいか、適切なものを選べ。</li>
+                    <li>ガス純度が＊％落ちると、次のどの状態になるのが正しいか、適切なものを選べ。</li>
+                    <li>飛行船のエンベロープにバイアスファブリックが使用されているが、これは次のどの理由によるものか、適切なものを選べ。</li>
+                    <li>プレッシャーハイト以下でポジティブスーパーヒートが＊＊から＊＊℃へ変化すると、次のどの状態になるか、適切なものを選べ。</li>
+                    <li>ヘビーな飛行船はテールヘビーのトリム状態でランディングせねばならないがこの理由として適切なものを選べ。</li>
+                    <li>ガス圧力上昇限度あるいは絶対上昇限度に於て、どの圧力計の状態が適切か、選べ。</li>
+                    <li>軟式飛行船のバロネットボリュームは全ガスボリュームに比し、ほぼどの程度になるか、適切なものを選べ。</li>
+                    <li>急激な温度の逆転を通過し飛行船をランディングさせる場合にはどうなるか、最も適切なものを選べ。</li>
+                    <li>飛行船のエンベロープの＊＊mm水柱の圧力は、平方cmあたりどの程度になるか、適切なものを選べ。</li>
+                    <li>飛行船がプレッシャーハイト以下でヘリウムを＊＊＊立方m含んでいるとすると、スーパーヒート＊.＊℃の増加は次のどれをもたらすか、適切なものを選べ。</li>
+                    <li>プレッシャーハイトおよびそれ以上では液体圧力計の作動は次のどのようになるか、適切なものを選べ。</li>
+                    <li>標準状態の下で、所定の高度から安全にランディングするために、気球としての飛行船のパイロットは最少限のバラストを予備として残さなければならないがその量として適切なものを選べ。</li>
+                    <li>飛行船がプレッシャーハイトを飛行中、大気圧力が＊.＊mm水銀柱増すと次のどれをもたらすか、適切なものを選べ。</li>
+                    <li>ほとんどの軟式飛行船はバロネットの容量はほぼどの程度か、適切なものを選べ。</li>
+                    <li>飛行船のエンベロープの縦（前後方向）割りの分割面を何というか、正しいものを選べ。</li>
+                    <li>飛行船はどのような状態の時に適正にウェイオフ（重量計測）されていると考えられるか、適切なものを次の中から選べ</li>
+                    <li>飛行船が総リフト＊＊＊kgで体積が一定に保たれる場合、ガス純度が＊%低下するとどの位の揚力損失を招くか、適切なものを選べ。</li>
+                    <li>飛行船のダイナミックリフトは次のどれから得られた揚力として定義されるか、適切なものを選べ。</li>
+                    <li>任意の対気速度における最大沈下率は、常に次のどれかにより左右されるか、次の中から適切なものを選べ。</li>
+                </ol>
+            </div>
+            <p class="back-link"><a href="articles.html">← 記事一覧へ戻る</a>　｜　<a href="contact.html">詳細のお問い合わせ →</a></p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 ブイヤント航空懇談会</p>
+</footer>
+
+</body>
+</html>

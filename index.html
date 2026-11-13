@@ -128,6 +128,21 @@
             line-height: 1.5;
         }
 
+        /* ▼ トップページ追加パーツ ▼ */
+        .text p { margin: 0 0 1.2em; }
+        .about-lead { font-size: 1.15rem; font-weight: bold; color: var(--main-deep); }
+        .mission { text-align: center; font-weight: bold; color: var(--main-dark); background: var(--main-pale); border-radius: 8px; padding: 1.5rem 1rem; margin: 2rem 0 !important; letter-spacing: 0.05em; line-height: 2; }
+        .center { text-align: center; }
+        .btn { display: inline-block; background: var(--main-dark); color: var(--white); text-decoration: none; font-weight: bold; padding: 0.8rem 2rem; border-radius: 999px; transition: background 0.3s, color 0.3s; margin: 0.3rem; }
+        .btn:hover { background: var(--main-color); }
+        .btn-light { background: var(--white); color: var(--main-dark); }
+        .btn-light:hover { background: var(--main-pale); color: var(--main-dark); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: calc(0.8rem - 2px) calc(2rem - 2px); }
+        .btn-outline:hover { background: rgba(255,255,255,0.15); }
+        .card-link { display: block; text-decoration: none; color: var(--text-color); }
+        .card-link p { margin-bottom: 0; }
+        .join-text { max-width: 700px; margin: 0 auto 2rem; }
+
         /* ▼ スマホ対応（レスポンシブ） ▼ */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 15px 0; gap: 15px; }
@@ -163,7 +178,7 @@
         </div>
         <ul>
             <li><a href="index.html" class="active">トップ</a></li>
-                        <li><a href="membership.html">入会案内</a></li>
+            <li><a href="membership.html">入会案内</a></li>
             <li><a href="history.html">学会紹介</a></li>
             <li><a href="events.html">イベント</a></li>
             <li><a href="publications.html">出版物</a></li>
@@ -176,7 +191,7 @@
 <section class="hero">
     <div class="hero-content">
         <h1>ブイヤント航空懇談会</h1>
-        <p>飛行船と気球の学術団体</p>
+        <p>飛行船や気球で未来を拓く<br>飛行船や気球の歴史と技術を社会に繋ぐ</p>
     </div>
 </section>
 
@@ -185,27 +200,60 @@
         <h2 class="section-title">About</h2>
         <div class="content-flex">
             <div class="text">
-    <p>
-      　ブイヤント航空懇談会は、飛行船や気球などLTA航空機分野を専門に扱う懇談会です。<br><br>
-       　LTA航空機分野の学理と技術に関する知識の交換をはかるとともに､これらの重要性について一般の認識を深めることを目的に、1973年より活動しています。<br><br>
-      　本団体は、飛行船・気球の研究者や技術者のみならず、写真撮影愛好家、歴史家、マニアなど様々な会員が飛行船・気球をテーマに幅広いジャンルの知識の交換を行っています。
-    </p>
+                <p class="about-lead">ブイヤント航空懇談会は、日本で最も古く、そして日本を代表する、飛行船や気球といった<strong>LTA（Lighter Than Air Aircraft）</strong>の研究団体です。</p>
+                <p>　1973年12月13日、東京・一ツ橋の学士会館で結成し、全国科学技術団体総連合に本部を置きました。戦前の軍や政府で、飛行船や気球の研究や開発・製造・運用に携わられていた方々を軸に設立された団体です。</p>
+                <p>　会では技術や歴史を伝承することの一環として、年1回の「ブイヤント航空講演会」と年2回の例会を開催しています。また、年刊機関誌「ブイヤント航空」（ISSN 1344-0527）を1974年6月から発行しています。</p>
+                <p>　会員には、飛行船・気球の研究者や技術者のみならず、運航者、操縦士、整備士、歴史家、写真家、学生、コレクターまで、さまざまな方が集まり、飛行船・気球をテーマに幅広いジャンルの知識の交換を行っています。</p>
+                <p class="mission">飛行船や気球の知識や見識を継承して未来へ届ける<br>飛行船や気球で社会を救う<br>それがブイヤント航空懇談会の使命です</p>
+                <p class="center"><a href="history.html#message" class="btn">ブイヤント航空懇談会を知る</a></p>
             </div>
         </div>
     </section>
 
-    <section id="news" class="bg-light">
+    <section id="activities" class="bg-light">
         <div class="container">
-            <h2 class="section-title">News</h2>
-
-            <!-- 新しいお知らせは一番上に追加してください -->
-            <div class="news-list">
-                <a href="news1.html" class="news-link-card">
-                    <span class="news-date">20xx.00.00</span>
-                    <h3>テスト</h3>
+            <h2 class="section-title">Activities</h2>
+            <div class="grid">
+                <a href="events.html" class="card card-link">
+                    <h3>講演会・例会</h3>
+                    <p>年1回の「ブイヤント航空講演会」と年2回の例会で、飛行船・気球の研究者と愛好者が交流しています。</p>
+                </a>
+                <a href="publications.html" class="card card-link">
+                    <h3>機関誌「ブイヤント航空」</h3>
+                    <p>1974年創刊の年刊誌。LTAの知見を半世紀以上にわたり後世へ伝えています。次号Vol.35は2027年5月発行予定です。</p>
+                </a>
+                <a href="articles.html" class="card card-link">
+                    <h3>史料の継承</h3>
+                    <p>設立当時の記録や巻頭言、日本を飛んだ飛行船、LTA関連書誌など、飛行船・気球の史料を整理・公開しています。</p>
                 </a>
             </div>
+        </div>
+    </section>
 
+    <section id="news" class="container">
+        <h2 class="section-title">News</h2>
+
+        <!-- 新しいお知らせは一番上に追加してください -->
+        <div class="news-list">
+            <a href="publications.html#submission" class="news-link-card">
+                <span class="news-date">2026.11.13</span>
+                <h3>会誌「ブイヤント航空」Vol.35 の原稿を募集しています（締切：2027年3月31日）</h3>
+            </a>
+            <a href="history.html#message" class="news-link-card">
+                <span class="news-date">2026.11.13</span>
+                <h3>ホームページを開設しました（設立52年目にしてやっと）</h3>
+            </a>
+        </div>
+    </section>
+
+    <section id="join" class="bg-dark">
+        <div class="container">
+            <h2 class="section-title">Join Us</h2>
+            <p class="join-text">会の運営に協力してくださる方、ご支援くださる方を求めています。<br>飛行船に関する資料や史料、部品などは、どうか捨てずに当会へご寄贈ください。</p>
+            <p>
+                <a href="membership.html" class="btn btn-light">入会案内</a>
+                <a href="contact.html" class="btn btn-outline">お問い合わせ</a>
+            </p>
         </div>
     </section>
 </main>
